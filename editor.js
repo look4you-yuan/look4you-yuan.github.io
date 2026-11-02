@@ -27,6 +27,9 @@
   /* 按页面隔离存储：每个页面各存各的，互不覆盖 */
   var PAGE_ID = (location.pathname.split('/').pop() || 'index.html').replace(/\.html$/i, '') || 'index';
   var LS_KEY = 'wws_site_v4:' + PAGE_ID;
+  /* 导航与页脚全站共享：改一次，所有页面同步 */
+  var SHARED_KEY = 'wws_shared_v4';
+  var SHARED_PREFIX = ['nav.', 'footer.'];
 
   /* ---------- 2. 图标库（data-type="icon" 用） ---------- */
   var ICONS = {
@@ -185,11 +188,29 @@
   /* ---------- 8. 持久化 ---------- */
   function save() {
     try { localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch (e) { }
+    saveShared();
     var st = $('#ed-status');
     if (st) {
       st.textContent = '已自动保存 · ' + new Date().toLocaleTimeString('zh-CN', { hour12: false });
       st.className = 'ed-status ok';
     }
+  }
+
+  /* 导航 / 页脚字段单独存一份，任何页面改了都同步 */
+  function isShared(k) {
+    for (var i = 0; i < SHARED_PREFIX.length; i++) {
+      if (k.indexOf(SHARED_PREFIX[i]) === 0) return true;
+    }
+    return false;
+  }
+  function saveShared() {
+    try {
+      var obj = {}, has = false;
+      Object.keys(state.fields).forEach(function (k) {
+        if (isShared(k)) { obj[k] = state.fields[k]; has = true; }
+      });
+      if (has) localStorage.setItem(SHARED_KEY, JSON.stringify(obj));
+    } catch (e) { }
   }
 
   /* ---------- 9. 面板渲染 ---------- */
@@ -221,17 +242,19 @@
       '<button class="ed-btn" data-act="exportjson">导出 JSON</button>' +
       '<button class="ed-btn" data-act="import">导入 JSON</button>' +
       '<button class="ed-btn danger" data-act="reset">恢复默认</button>' +
-      '<p class="ed-status" id="ed-status">自动保存中…</p></div>';
+      '<p class="ed-status" id="ed-status">自动保存中…</p>' +
+      '<input class="ed-search" type="search" placeholder="搜索要改的文字，如「页脚」「联系」" aria-label="搜索字段">' +
+      '</div>';
     h += '<div class="ed-body">';
 
-    // 单值字段：按 group 聚合
+    // 单值字段：按 group 聚合（默认只展开第一组）
     var groups = {}, order = [];
     schema.fields.forEach(function (f) {
       if (!groups[f.group]) { groups[f.group] = []; order.push(f.group); }
       groups[f.group].push(f);
     });
-    order.forEach(function (g) {
-      h += '<div class="ed-group open"><button class="ed-group-head" data-act="toggle">' +
+    order.forEach(function (g, gi) {
+      h += '<div class="ed-group' + (gi === 0 ? ' open' : '') + '"><button class="ed-group-head" data-act="toggle">' +
         '<span>' + esc(g) + '</span><span class="chev">›</span></button><div class="ed-group-panel">';
       groups[g].forEach(function (f) {
         h += '<div class="ed-field"><label>' + esc(f.label) + '</label>' +
@@ -243,7 +266,7 @@
     // 列表
     schema.lists.forEach(function (L) {
       var items = state.lists[L.key] || [];
-      h += '<div class="ed-group open"><button class="ed-group-head" data-act="toggle">' +
+      h += '<div class="ed-group"><button class="ed-group-head" data-act="toggle">' +
         '<span>' + esc(L.label) + '（' + items.length + '）</span><span class="chev">›</span></button><div class="ed-group-panel">';
       h += '<div class="ed-items">';
       items.forEach(function (it, i) {
@@ -272,6 +295,25 @@
   function panelList(L) {
     // 只重绘面板里某个 list 的 items 区域：简单起见整体重绘
     renderPanel();
+  }
+
+  /* 搜索：按字段标签过滤，命中即展开该分组 */
+  function filterFields(q) {
+    q = (q || '').trim().toLowerCase();
+    $all('#editor-drawer .ed-group').forEach(function (g) {
+      var visible = 0;
+      $all('.ed-field', g).forEach(function (f) {
+        var lab = f.querySelector('label');
+        var text = (lab ? lab.textContent : '').toLowerCase() +
+          (f.querySelector('.ed-input') && f.querySelector('.ed-input').value || '').toLowerCase();
+        var ok = !q || text.indexOf(q) >= 0;
+        f.style.display = ok ? '' : 'none';
+        if (ok) visible++;
+      });
+      if (!q) { g.style.display = ''; return; }
+      g.style.display = visible ? '' : 'none';
+      if (visible) g.classList.add('open');
+    });
   }
 
   /* ---------- 10. 打开/关闭 ---------- */
@@ -346,6 +388,7 @@
 
     d.addEventListener('input', function (e) {
       var t = e.target;
+      if (t.classList.contains('ed-search')) { filterFields(t.value); return; }
       if (!t.classList.contains('ed-input')) return;
       var scope = t.getAttribute('data-scope');
       var key = t.getAttribute('data-key');
@@ -403,8 +446,8 @@
   }
 
   function reset() {
-    if (!confirm('确定恢复默认内容吗？当前改动将被清除。')) return;
-    try { localStorage.removeItem(LS_KEY); } catch (e) { }
+    if (!confirm('确定恢复默认内容吗？当前改动（含页脚）将被清除。')) return;
+    try { localStorage.removeItem(LS_KEY); localStorage.removeItem(SHARED_KEY); } catch (e) { }
     location.reload();
   }
 
@@ -431,6 +474,17 @@
             if (k in state.lists && Array.isArray(data.lists[k])) state.lists[k] = data.lists[k];
           });
         }
+      }
+    } catch (e) { }
+
+    // 导航 / 页脚为全站共享，单独加载一次，覆盖各页自带默认值
+    try {
+      var sharedSaved = localStorage.getItem(SHARED_KEY);
+      if (sharedSaved) {
+        var fd = JSON.parse(sharedSaved);
+        Object.keys(fd).forEach(function (k) {
+          if (k in state.fields) state.fields[k] = fd[k];
+        });
       }
     } catch (e) { }
 

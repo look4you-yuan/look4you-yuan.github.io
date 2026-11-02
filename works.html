@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>作品 · WWS 思垣</title>
-<meta name="description" content="WWS 的作品陈列：从电路到桌面软件，从仿真到镜头。">
+<title>作品 · look4you</title>
+<meta name="description" content="look4you 的作品陈列：从电路到桌面软件，从仿真到镜头。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -24,16 +24,16 @@
           <ellipse cx="16" cy="16" rx="20" ry="7" fill="none" stroke="#2d618c" stroke-width="1.4" opacity="0.55" transform="rotate(-18 16 16)"/>
           <circle cx="16" cy="16" r="4.5" fill="#144a74"/>
         </svg>
-        <b>WWS<span class="cn">思垣</span></b>
+        <b><span data-field="nav.name" data-label="导航·品牌名" data-group="导航">look4you</span></b>
       </a>
       <div class="nav-links">
-        <a href="works.html" class="active" aria-current="page">作品</a>
-        <a href="skills.html">技能</a>
-        <a href="blog.html">博客</a>
-        <a href="about.html">关于</a>
+        <a href="works.html" class="active" aria-current="page"><span data-field="nav.l1" data-label="导航·作品" data-group="导航">作品</span></a>
+        <a href="skills.html"><span data-field="nav.l2" data-label="导航·技能" data-group="导航">技能</span></a>
+        <a href="blog.html"><span data-field="nav.l3" data-label="导航·博客" data-group="导航">博客</span></a>
+        <a href="about.html"><span data-field="nav.l4" data-label="导航·关于" data-group="导航">关于</span></a>
       </div>
       <div class="nav-actions">
-        <a class="btn-primary btn-sm" href="about.html#contact">联系我</a>
+        <a class="btn-primary btn-sm" href="contact.html"><span data-field="nav.cta" data-label="导航·联系按钮" data-group="导航">联系我</span></a>
       </div>
     </nav>
   </header>
@@ -41,15 +41,15 @@
   <main id="main">
 
     <section class="page-hero">
-      <nav class="crumb"><a href="index.html">首页</a><span class="sep">/</span>作品</nav>
+      <nav class="crumb"><a href="index.html"><span data-field="works.cr1" data-label="面包屑 1" data-group="页头">首页</span></a><span class="sep">/</span><span data-field="crumb" data-label="面包屑当前页" data-group="页头">作品</span></nav>
       <h1 data-field="page.title" data-label="页面标题" data-group="页头">作品</h1>
       <p class="lede" data-field="page.lede" data-label="页面导语" data-type="textarea" data-group="页头">从电路到软件，从仿真到镜头。做完了的，都放在这里。</p>
     </section>
 
     <div class="group-head tight">
-      <p class="section-eyebrow">已经交付的</p>
-      <h2 class="section-title">四个完整的项目</h2>
-      <p class="section-lede">有可运行的程序，有能打印的报告，也有能直接发给别人的成品。点进去看过程。</p>
+      <p class="section-eyebrow" data-field="w.g1e" data-label="分组1 眉题" data-group="分组标题">已经交付的</p>
+      <h2 class="section-title" data-field="w.g1t" data-label="分组1 标题" data-group="分组标题">四个完整的项目</h2>
+      <p class="section-lede" data-field="w.g1l" data-label="分组1 导语" data-type="textarea" data-group="分组标题">有可运行的程序，有能打印的报告，也有能直接发给别人的成品。点进去看过程。</p>
     </div>
 
     <div class="feature-cards" data-list="works" data-label="项目卡片">
@@ -68,7 +68,7 @@
             <li>56 个清理目标逐条写明「删了会怎样」，删除在后端二次校验</li>
             <li>打成一个 29.9 MB 单文件，双击即用，全本地不联网</li>
           </ul>
-          <a class="fcard-more" href="work-comet.html" data-field="more" data-label="详情链接" data-type="link">查看详情 <i>→</i></a>
+          <a class="fcard-more" href="work-comet.html" data-field="more" data-label="详情链接" data-type="link"><span data-field="moretext" data-label="详情链接文字">查看详情</span> <i>→</i></a>
         </div>
       </article>
 
@@ -86,7 +86,7 @@
             <li>定时测量关注目录体积，记下突发写入的时间戳</li>
             <li>SQLite 存历史、CSV 按天滚动，一键生成 HTML 清算报告</li>
           </ul>
-          <a class="fcard-more" href="work-sentinel.html" data-field="more" data-label="详情链接" data-type="link">查看详情 <i>→</i></a>
+          <a class="fcard-more" href="work-sentinel.html" data-field="more" data-label="详情链接" data-type="link"><span data-field="moretext" data-label="详情链接文字">查看详情</span> <i>→</i></a>
         </div>
       </article>
 
@@ -104,7 +104,7 @@
             <li>线电压 220.53 V、THD 3.07%、效率 97.84%，六路驱动对上</li>
             <li>30 页报告与 9 张分析图由脚本生成，数字与仿真同源</li>
           </ul>
-          <a class="fcard-more" href="work-inverter.html" data-field="more" data-label="详情链接" data-type="link">查看详情 <i>→</i></a>
+          <a class="fcard-more" href="work-inverter.html" data-field="more" data-label="详情链接" data-type="link"><span data-field="moretext" data-label="详情链接文字">查看详情</span> <i>→</i></a>
         </div>
       </article>
 
@@ -122,16 +122,16 @@
             <li>让 AI 直接操作 Simulink 建模、连线、跑仿真、导图</li>
             <li>附安装与自检脚本，换台机器也能一键复原</li>
           </ul>
-          <a class="fcard-more" href="work-skills.html" data-field="more" data-label="详情链接" data-type="link">查看详情 <i>→</i></a>
+          <a class="fcard-more" href="work-skills.html" data-field="more" data-label="详情链接" data-type="link"><span data-field="moretext" data-label="详情链接文字">查看详情</span> <i>→</i></a>
         </div>
       </article>
 
     </div>
 
     <div class="group-head">
-      <p class="section-eyebrow">练习与日常</p>
-      <h2 class="section-title">动手做过的小东西</h2>
-      <p class="section-lede">课程作业、社团、生活里顺手做的。没有交付压力，但都真的做完了。</p>
+      <p class="section-eyebrow" data-field="w.g2e" data-label="分组2 眉题" data-group="分组标题">练习与日常</p>
+      <h2 class="section-title" data-field="w.g2t" data-label="分组2 标题" data-group="分组标题">动手做过的小东西</h2>
+      <p class="section-lede" data-field="w.g2l" data-label="分组2 导语" data-type="textarea" data-group="分组标题">课程作业、社团、生活里顺手做的。没有交付压力，但都真的做完了。</p>
     </div>
 
     <div class="feature-cards" data-list="works-more" data-label="练习卡片">
@@ -246,47 +246,47 @@
   <div class="foot-inner">
     <div class="foot-top">
       <div class="mark">
-        <div class="wm-name">WWS<span class="cn"> · 思垣</span></div>
-        <div class="wm-sub">作品 · 技能 · 博客</div>
-        <div class="wm-ver">v1.2.0 · 持续更新</div>
+        <div class="wm-name"><span data-field="footer.name" data-label="页脚品牌名" data-group="页脚">look4you</span></div>
+        <div class="wm-sub" data-field="footer.sub" data-label="页脚副标题" data-group="页脚">作品 · 技能 · 博客</div>
+        <div class="wm-ver" data-field="footer.ver" data-label="页脚版本行" data-group="页脚">v1.3.0 · 持续更新</div>
       </div>
       <div class="foot-cols">
         <div class="foot-col">
-          <div class="foot-col-title">作品</div>
-          <a href="work-comet.html">彗星 Comet</a>
-          <a href="work-sentinel.html">C 盘哨兵</a>
-          <a href="work-inverter.html">三相 SPWM 逆变器</a>
-          <a href="work-skills.html">技能包 Toolchain</a>
+          <div class="foot-col-title" data-field="footer.c1t" data-label="页脚·作品·标题" data-group="页脚">作品</div>
+          <a href="work-comet.html"><span data-field="footer.c1l1" data-label="页脚·作品·链接1" data-group="页脚">彗星 Comet</span></a>
+          <a href="work-sentinel.html"><span data-field="footer.c1l2" data-label="页脚·作品·链接2" data-group="页脚">C 盘哨兵</span></a>
+          <a href="work-inverter.html"><span data-field="footer.c1l3" data-label="页脚·作品·链接3" data-group="页脚">三相逆变器</span></a>
+          <a href="work-skills.html"><span data-field="footer.c1l4" data-label="页脚·作品·链接4" data-group="页脚">技能包</span></a>
         </div>
         <div class="foot-col">
-          <div class="foot-col-title">技能</div>
-          <a href="skills.html">电路设计</a>
-          <a href="skills.html">单片机</a>
-          <a href="skills.html">摄影后期</a>
-          <a href="skills.html">三维建模</a>
+          <div class="foot-col-title" data-field="footer.c2t" data-label="页脚·技能·标题" data-group="页脚">技能</div>
+          <a href="skills.html"><span data-field="footer.c2l1" data-label="页脚·技能·链接1" data-group="页脚">电路设计</span></a>
+          <a href="skills.html"><span data-field="footer.c2l2" data-label="页脚·技能·链接2" data-group="页脚">单片机</span></a>
+          <a href="skills.html"><span data-field="footer.c2l3" data-label="页脚·技能·链接3" data-group="页脚">摄影后期</span></a>
+          <a href="skills.html"><span data-field="footer.c2l4" data-label="页脚·技能·链接4" data-group="页脚">三维建模</span></a>
         </div>
         <div class="foot-col">
-          <div class="foot-col-title">博客</div>
-          <a href="blog.html">项目复盘</a>
-          <a href="blog.html">技术笔记</a>
-          <a href="blog.html">生活随笔</a>
+          <div class="foot-col-title" data-field="footer.c3t" data-label="页脚·博客·标题" data-group="页脚">博客</div>
+          <a href="blog.html"><span data-field="footer.c3l1" data-label="页脚·博客·链接1" data-group="页脚">项目复盘</span></a>
+          <a href="blog.html"><span data-field="footer.c3l2" data-label="页脚·博客·链接2" data-group="页脚">技术笔记</span></a>
+          <a href="blog.html"><span data-field="footer.c3l3" data-label="页脚·博客·链接3" data-group="页脚">生活随笔</span></a>
         </div>
         <div class="foot-col">
-          <div class="foot-col-title">关于</div>
-          <a href="about.html">简介</a>
-          <a href="https://github.com/look4you-yuan">GitHub</a>
-          <a href="works.html">作品集</a>
+          <div class="foot-col-title" data-field="footer.c4t" data-label="页脚·关于·标题" data-group="页脚">关于</div>
+          <a href="about.html"><span data-field="footer.c4l1" data-label="页脚·关于·链接1" data-group="页脚">简介</span></a>
+          <a href="https://github.com/look4you-yuan"><span data-field="footer.c4l2" data-label="页脚·关于·链接2" data-group="页脚">GitHub</span></a>
+          <a href="works.html"><span data-field="footer.c4l3" data-label="页脚·关于·链接3" data-group="页脚">作品集</span></a>
         </div>
         <div class="foot-col">
-          <div class="foot-col-title">联系</div>
-          <a href="about.html#contact">交流</a>
-          <a href="about.html#contact">合作</a>
+          <div class="foot-col-title" data-field="footer.c5t" data-label="页脚·联系·标题" data-group="页脚">联系</div>
+          <a href="contact.html"><span data-field="footer.c5l1" data-label="页脚·联系·链接1" data-group="页脚">聊聊</span></a>
+          <a href="contact.html"><span data-field="footer.c5l2" data-label="页脚·联系·链接2" data-group="页脚">合作</span></a>
         </div>
       </div>
     </div>
     <div class="foot-bottom">
-      <span class="ethos">安静地做，认真地记录。</span>
-      <span>© 2026 WWS · 思垣</span>
+      <span class="ethos" data-field="footer.ethos" data-label="页脚格言" data-group="页脚">安静地做，认真地记录。</span>
+      <span data-field="footer.copy" data-label="页脚版权行" data-group="页脚">© 2026 look4you</span>
     </div>
   </div>
 </footer>
@@ -299,6 +299,7 @@
 <div id="editor-drawer" class="editor-drawer" hidden></div>
 
 <script src="editor.js"></script>
+<script src="motion.js"></script>
 
 </body>
 </html>

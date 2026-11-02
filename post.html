@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>人体感应小夜灯：从方案到实物的完整复盘 · WWS 思垣</title>
+<title>人体感应小夜灯：从方案到实物的完整复盘 · look4you</title>
 <meta name="description" content="从器件选型、Multisim 仿真，到 PCB 打样与焊接调试的完整记录。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,16 +24,16 @@
           <ellipse cx="16" cy="16" rx="20" ry="7" fill="none" stroke="#2d618c" stroke-width="1.4" opacity="0.55" transform="rotate(-18 16 16)"/>
           <circle cx="16" cy="16" r="4.5" fill="#144a74"/>
         </svg>
-        <b>WWS<span class="cn">思垣</span></b>
+        <b><span data-field="nav.name" data-label="导航·品牌名" data-group="导航">look4you</span></b>
       </a>
       <div class="nav-links">
-        <a href="works.html">作品</a>
-        <a href="skills.html">技能</a>
-        <a href="blog.html" class="active" aria-current="page">博客</a>
-        <a href="about.html">关于</a>
+        <a href="works.html"><span data-field="nav.l1" data-label="导航·作品" data-group="导航">作品</span></a>
+        <a href="skills.html"><span data-field="nav.l2" data-label="导航·技能" data-group="导航">技能</span></a>
+        <a href="blog.html" class="active" aria-current="page"><span data-field="nav.l3" data-label="导航·博客" data-group="导航">博客</span></a>
+        <a href="about.html"><span data-field="nav.l4" data-label="导航·关于" data-group="导航">关于</span></a>
       </div>
       <div class="nav-actions">
-        <a class="btn-primary btn-sm" href="about.html#contact">联系我</a>
+        <a class="btn-primary btn-sm" href="contact.html"><span data-field="nav.cta" data-label="导航·联系按钮" data-group="导航">联系我</span></a>
       </div>
     </nav>
   </header>
@@ -42,7 +42,7 @@
 
     <article class="article">
       <header class="article-head">
-        <nav class="crumb"><a href="index.html">首页</a><span class="sep">/</span><a href="blog.html">博客</a><span class="sep">/</span>人体感应小夜灯</nav>
+        <nav class="crumb"><a href="index.html"><span data-field="post.cr1" data-label="面包屑 1" data-group="页头">首页</span></a><span class="sep">/</span><a href="blog.html"><span data-field="post.cr2" data-label="面包屑 2" data-group="页头">博客</span></a><span class="sep">/</span><span data-field="crumb" data-label="面包屑当前页" data-group="页头">人体感应小夜灯</span></nav>
         <h1 data-field="title" data-label="文章标题" data-group="文章">人体感应小夜灯：从方案到实物的完整复盘</h1>
         <div class="article-meta">
           <span class="date" data-field="date" data-label="日期" data-group="文章">2025-06-20</span>
@@ -68,16 +68,16 @@
 
         <h2 data-field="h3" data-label="小标题 3" data-group="正文">仿真与调试</h2>
         <p data-field="p4" data-label="段落 4" data-type="textarea" data-group="正文">先在 Multisim 里把每个模块单独仿真，确认静态工作点和放大倍数，再连起来跑整体。窗口比较器的阈值一开始没设好，白天也会误触发，调了很久才稳定。</p>
-        <blockquote>仿真能跑通，不等于实物能跑通——这是这个项目最大的体会。</blockquote>
+        <blockquote data-field="po.q1" data-label="引用 1" data-group="正文">仿真能跑通，不等于实物能跑通——这是这个项目最大的体会。</blockquote>
 
         <h2 data-field="h4" data-label="小标题 4" data-group="正文">实物与结果</h2>
         <p data-field="p5" data-label="段落 5" data-type="textarea" data-group="正文">PCB 用 Altium Designer 绘制，第一次打样。焊接完成后逐点测量，排查了两处虚焊和一处信号耦合干扰。最终实现 10 秒级可调延时（误差小于 5%），以及环境光强的分级判别，实物演示正常。</p>
-        <blockquote>把电路从"图上的理论"变成"手里的实物"，中间隔着的全是细节。</blockquote>
+        <blockquote data-field="po.q2" data-label="引用 2" data-group="正文">把电路从"图上的理论"变成"手里的实物"，中间隔着的全是细节。</blockquote>
       </div>
 
       <div class="article-foot">
-        <a href="blog.html">← 返回博客</a>
-        <a href="post.html">下一篇：PCB 打样 →</a>
+        <a href="blog.html">← <span data-field="po.nav1" data-label="返回文字" data-group="页尾导航">返回博客</span></a>
+        <a href="post.html"><span data-field="po.nav2" data-label="下一篇文字" data-group="页尾导航">下一篇：PCB 打样</span> →</a>
       </div>
     </article>
 
@@ -88,47 +88,47 @@
   <div class="foot-inner">
     <div class="foot-top">
       <div class="mark">
-        <div class="wm-name">WWS<span class="cn"> · 思垣</span></div>
-        <div class="wm-sub">作品 · 技能 · 博客</div>
-        <div class="wm-ver">v1.1.0 · 持续更新</div>
+        <div class="wm-name"><span data-field="footer.name" data-label="页脚品牌名" data-group="页脚">look4you</span></div>
+        <div class="wm-sub" data-field="footer.sub" data-label="页脚副标题" data-group="页脚">作品 · 技能 · 博客</div>
+        <div class="wm-ver" data-field="footer.ver" data-label="页脚版本行" data-group="页脚">v1.3.0 · 持续更新</div>
       </div>
       <div class="foot-cols">
         <div class="foot-col">
-          <div class="foot-col-title">作品</div>
-          <a href="works.html">人体感应小夜灯</a>
-          <a href="works.html">航模与飞行</a>
-          <a href="works.html">光影笔记</a>
-          <a href="works.html">写作</a>
+          <div class="foot-col-title" data-field="footer.c1t" data-label="页脚·作品·标题" data-group="页脚">作品</div>
+          <a href="work-comet.html"><span data-field="footer.c1l1" data-label="页脚·作品·链接1" data-group="页脚">彗星 Comet</span></a>
+          <a href="work-sentinel.html"><span data-field="footer.c1l2" data-label="页脚·作品·链接2" data-group="页脚">C 盘哨兵</span></a>
+          <a href="work-inverter.html"><span data-field="footer.c1l3" data-label="页脚·作品·链接3" data-group="页脚">三相逆变器</span></a>
+          <a href="work-skills.html"><span data-field="footer.c1l4" data-label="页脚·作品·链接4" data-group="页脚">技能包</span></a>
         </div>
         <div class="foot-col">
-          <div class="foot-col-title">技能</div>
-          <a href="skills.html">电路设计</a>
-          <a href="skills.html">单片机</a>
-          <a href="skills.html">摄影后期</a>
-          <a href="skills.html">三维建模</a>
+          <div class="foot-col-title" data-field="footer.c2t" data-label="页脚·技能·标题" data-group="页脚">技能</div>
+          <a href="skills.html"><span data-field="footer.c2l1" data-label="页脚·技能·链接1" data-group="页脚">电路设计</span></a>
+          <a href="skills.html"><span data-field="footer.c2l2" data-label="页脚·技能·链接2" data-group="页脚">单片机</span></a>
+          <a href="skills.html"><span data-field="footer.c2l3" data-label="页脚·技能·链接3" data-group="页脚">摄影后期</span></a>
+          <a href="skills.html"><span data-field="footer.c2l4" data-label="页脚·技能·链接4" data-group="页脚">三维建模</span></a>
         </div>
         <div class="foot-col">
-          <div class="foot-col-title">博客</div>
-          <a href="blog.html">项目复盘</a>
-          <a href="blog.html">技术笔记</a>
-          <a href="blog.html">生活随笔</a>
+          <div class="foot-col-title" data-field="footer.c3t" data-label="页脚·博客·标题" data-group="页脚">博客</div>
+          <a href="blog.html"><span data-field="footer.c3l1" data-label="页脚·博客·链接1" data-group="页脚">项目复盘</span></a>
+          <a href="blog.html"><span data-field="footer.c3l2" data-label="页脚·博客·链接2" data-group="页脚">技术笔记</span></a>
+          <a href="blog.html"><span data-field="footer.c3l3" data-label="页脚·博客·链接3" data-group="页脚">生活随笔</span></a>
         </div>
         <div class="foot-col">
-          <div class="foot-col-title">关于</div>
-          <a href="about.html">简介</a>
-          <a href="https://github.com/look4you-yuan">GitHub</a>
-          <a href="works.html">作品集</a>
+          <div class="foot-col-title" data-field="footer.c4t" data-label="页脚·关于·标题" data-group="页脚">关于</div>
+          <a href="about.html"><span data-field="footer.c4l1" data-label="页脚·关于·链接1" data-group="页脚">简介</span></a>
+          <a href="https://github.com/look4you-yuan"><span data-field="footer.c4l2" data-label="页脚·关于·链接2" data-group="页脚">GitHub</span></a>
+          <a href="works.html"><span data-field="footer.c4l3" data-label="页脚·关于·链接3" data-group="页脚">作品集</span></a>
         </div>
         <div class="foot-col">
-          <div class="foot-col-title">联系</div>
-          <a href="about.html#contact">交流</a>
-          <a href="about.html#contact">合作</a>
+          <div class="foot-col-title" data-field="footer.c5t" data-label="页脚·联系·标题" data-group="页脚">联系</div>
+          <a href="contact.html"><span data-field="footer.c5l1" data-label="页脚·联系·链接1" data-group="页脚">聊聊</span></a>
+          <a href="contact.html"><span data-field="footer.c5l2" data-label="页脚·联系·链接2" data-group="页脚">合作</span></a>
         </div>
       </div>
     </div>
     <div class="foot-bottom">
-      <span class="ethos">安静地做，认真地记录。</span>
-      <span>© 2026 WWS · 思垣</span>
+      <span class="ethos" data-field="footer.ethos" data-label="页脚格言" data-group="页脚">安静地做，认真地记录。</span>
+      <span data-field="footer.copy" data-label="页脚版权行" data-group="页脚">© 2026 look4you</span>
     </div>
   </div>
 </footer>
@@ -141,6 +141,7 @@
 <div id="editor-drawer" class="editor-drawer" hidden></div>
 
 <script src="editor.js"></script>
+<script src="motion.js"></script>
 
 </body>
 </html>

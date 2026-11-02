@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>联系 · look4you</title>
+<meta name="description" content="联系 look4you：聊聊项目、合作，或者只是打个招呼。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="contact">
+
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<div class="page">
+
+  <header class="nav-wrap">
+    <nav class="site-nav" aria-label="主导航">
+      <a class="nav-brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="13" fill="none" stroke="#144a74" stroke-width="2.4"/>
+          <ellipse cx="16" cy="16" rx="20" ry="7" fill="none" stroke="#2d618c" stroke-width="1.4" opacity="0.55" transform="rotate(-18 16 16)"/>
+          <circle cx="16" cy="16" r="4.5" fill="#144a74"/>
+        </svg>
+        <b><span data-field="nav.name" data-label="导航·品牌名" data-group="导航">look4you</span></b>
+      </a>
+      <div class="nav-links">
+        <a href="works.html"><span data-field="nav.l1" data-label="导航·作品" data-group="导航">作品</span></a>
+        <a href="skills.html"><span data-field="nav.l2" data-label="导航·技能" data-group="导航">技能</span></a>
+        <a href="blog.html"><span data-field="nav.l3" data-label="导航·博客" data-group="导航">博客</span></a>
+        <a href="about.html"><span data-field="nav.l4" data-label="导航·关于" data-group="导航">关于</span></a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn-primary btn-sm" href="contact.html" aria-current="page"><span data-field="nav.cta" data-label="导航·联系按钮" data-group="导航">联系我</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <section class="page-hero">
+      <nav class="crumb"><a href="index.html"><span data-field="contact.cr1" data-label="面包屑 1" data-group="页头">首页</span></a><span class="sep">/</span><span data-field="crumb" data-label="面包屑当前页" data-group="页头">联系</span></nav>
+      <h1 data-field="contact.title" data-label="标题" data-group="页头">聊聊</h1>
+      <p class="lede" data-field="contact.lede" data-label="导语" data-type="textarea" data-group="页头">有想做的项目、想问的问题，或者只是想说声你好——都可以。</p>
+    </section>
+
+    <div class="contact-wrap">
+
+      <section class="contact-block reveal">
+        <h2 class="block-title" data-field="contact.h1" data-label="小标题 1" data-group="联系方式">在别处找到我</h2>
+        <p class="block-lede" data-field="contact.p1" data-label="说明 1" data-type="textarea" data-group="联系方式">最直接的是 GitHub，代码和工具都放在那里。想聊具体的事，用右边的表单。</p>
+
+        <div class="contact-cards" data-list="channels" data-label="联系渠道">
+
+          <a class="contact-card" href="https://github.com/look4you-yuan" data-item>
+            <span class="contact-glyph" data-field="glyph" data-label="图标字">GH</span>
+            <span class="contact-meta">
+              <span class="contact-handle" data-field="handle" data-label="名称">GitHub</span>
+              <span class="contact-sub" data-field="sub" data-label="说明">代码、脚本与实验</span>
+            </span>
+          </a>
+
+          <a class="contact-card" href="works.html" data-item>
+            <span class="contact-glyph" data-field="glyph" data-label="图标字">◈</span>
+            <span class="contact-meta">
+              <span class="contact-handle" data-field="handle" data-label="名称">作品集</span>
+              <span class="contact-sub" data-field="sub" data-label="说明">看做过什么，比听我说更准</span>
+            </span>
+          </a>
+
+          <a class="contact-card" href="blog.html" data-item>
+            <span class="contact-glyph" data-field="glyph" data-label="图标字">✎</span>
+            <span class="contact-meta">
+              <span class="contact-handle" data-field="handle" data-label="名称">博客</span>
+              <span class="contact-sub" data-field="sub" data-label="说明">项目复盘与技术笔记</span>
+            </span>
+          </a>
+
+        </div>
+
+        <p class="block-note" data-field="contact.n1" data-label="说明 2" data-type="textarea" data-group="联系方式">通常一天内回信。如果我迟迟没回，大概率是漏看了，再发一次就好。</p>
+      </section>
+
+      <section class="contact-block reveal">
+        <h2 class="block-title" data-field="contact.h2" data-label="小标题 2" data-group="留言表单">写封信</h2>
+        <p class="block-lede" data-field="contact.p2" data-label="说明 3" data-type="textarea" data-group="留言表单">填好点「生成留言」，内容会复制到剪贴板，粘贴到邮件或微信发给我就行。本站不收集任何数据。</p>
+
+        <form class="msg-form" id="msg-form" novalidate>
+          <div class="field-row">
+            <div class="fld">
+              <label for="f-name" data-field="contact.l1" data-label="字段1 标签" data-group="留言表单">怎么称呼</label>
+              <input id="f-name" name="name" type="text" autocomplete="name"
+                     data-field="contact.ph1" data-label="字段1 占位文字" placeholder="你的名字">
+            </div>
+            <div class="fld">
+              <label for="f-from" data-field="contact.l2" data-label="字段2 标签" data-group="留言表单">怎么联系你</label>
+              <input id="f-from" name="from" type="text" autocomplete="email"
+                     data-field="contact.ph2" data-label="字段2 占位文字" placeholder="邮箱或微信，选填">
+            </div>
+          </div>
+
+          <div class="fld">
+            <label for="f-topic" data-field="contact.l3" data-label="字段3 标签" data-group="留言表单">想聊什么</label>
+            <input id="f-topic" name="topic" type="text"
+                   data-field="contact.ph3" data-label="字段3 占位文字" placeholder="一句话说清，方便我准备">
+          </div>
+
+          <div class="fld">
+            <label for="f-body" data-field="contact.l4" data-label="字段4 标签" data-group="留言表单">具体内容</label>
+            <textarea id="f-body" name="body" rows="6"
+                      data-field="contact.ph4" data-label="字段4 占位文字" placeholder="写在这里，越具体越好"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn-primary" type="submit" data-field="contact.btn" data-label="按钮文字" data-group="留言表单">生成留言</button>
+            <span class="form-status" id="form-status" role="status" aria-live="polite"></span>
+          </div>
+        </form>
+
+        <div class="form-preview" id="form-preview" hidden>
+          <div class="preview-head">
+            <span data-field="contact.prevt" data-label="预览标题" data-group="留言表单">预览</span>
+            <button class="btn-ghost btn-sm" type="button" id="copy-again" data-field="contact.copy2" data-label="再复制按钮" data-group="留言表单">再复制一次</button>
+          </div>
+          <pre id="preview-text"></pre>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="mark">
+        <div class="wm-name"><span data-field="footer.name" data-label="页脚品牌名" data-group="页脚">look4you</span></div>
+        <div class="wm-sub" data-field="footer.sub" data-label="页脚副标题" data-group="页脚">作品 · 技能 · 博客</div>
+        <div class="wm-ver" data-field="footer.ver" data-label="页脚版本行" data-group="页脚">v1.3.0 · 持续更新</div>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <div class="foot-col-title" data-field="footer.c1t" data-label="页脚·作品·标题" data-group="页脚">作品</div>
+          <a href="work-comet.html"><span data-field="footer.c1l1" data-label="页脚·作品·1" data-group="页脚">彗星 Comet</span></a>
+          <a href="work-sentinel.html"><span data-field="footer.c1l2" data-label="页脚·作品·2" data-group="页脚">C 盘哨兵</span></a>
+          <a href="work-inverter.html"><span data-field="footer.c1l3" data-label="页脚·作品·3" data-group="页脚">三相逆变器</span></a>
+          <a href="work-skills.html"><span data-field="footer.c1l4" data-label="页脚·作品·4" data-group="页脚">技能包</span></a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title" data-field="footer.c2t" data-label="页脚·技能·标题" data-group="页脚">技能</div>
+          <a href="skills.html"><span data-field="footer.c2l1" data-label="页脚·技能·1" data-group="页脚">电路设计</span></a>
+          <a href="skills.html"><span data-field="footer.c2l2" data-label="页脚·技能·2" data-group="页脚">单片机</span></a>
+          <a href="skills.html"><span data-field="footer.c2l3" data-label="页脚·技能·3" data-group="页脚">摄影后期</span></a>
+          <a href="skills.html"><span data-field="footer.c2l4" data-label="页脚·技能·4" data-group="页脚">三维建模</span></a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title" data-field="footer.c3t" data-label="页脚·博客·标题" data-group="页脚">博客</div>
+          <a href="blog.html"><span data-field="footer.c3l1" data-label="页脚·博客·1" data-group="页脚">项目复盘</span></a>
+          <a href="blog.html"><span data-field="footer.c3l2" data-label="页脚·博客·2" data-group="页脚">技术笔记</span></a>
+          <a href="blog.html"><span data-field="footer.c3l3" data-label="页脚·博客·3" data-group="页脚">生活随笔</span></a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title" data-field="footer.c4t" data-label="页脚·关于·标题" data-group="页脚">关于</div>
+          <a href="about.html"><span data-field="footer.c4l1" data-label="页脚·关于·1" data-group="页脚">简介</span></a>
+          <a href="https://github.com/look4you-yuan"><span data-field="footer.c4l2" data-label="页脚·关于·2" data-group="页脚">GitHub</span></a>
+          <a href="works.html"><span data-field="footer.c4l3" data-label="页脚·关于·3" data-group="页脚">作品集</span></a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title" data-field="footer.c5t" data-label="页脚·联系·标题" data-group="页脚">联系</div>
+          <a href="contact.html"><span data-field="footer.c5l1" data-label="页脚·联系·1" data-group="页脚">聊聊</span></a>
+          <a href="contact.html"><span data-field="footer.c5l2" data-label="页脚·联系·2" data-group="页脚">合作</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="ethos" data-field="footer.ethos" data-label="页脚格言" data-group="页脚">安静地做，认真地记录。</span>
+      <span data-field="footer.copy" data-label="页脚版权行" data-group="页脚">© 2026 look4you</span>
+    </div>
+  </div>
+</footer>
+
+<button class="editor-fab" type="button" title="打开内容控制台（Ctrl/Cmd+E）" aria-label="打开内容控制台">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+  </svg>
+</button>
+<div id="editor-drawer" class="editor-drawer" hidden></div>
+
+<script src="editor.js"></script>
+<script src="motion.js"></script>
+<script>
+(function () {
+  var form = document.getElementById('msg-form');
+  var status = document.getElementById('form-status');
+  var preview = document.getElementById('form-preview');
+  var previewText = document.getElementById('preview-text');
+  if (!form) return;
+
+  function compose() {
+    var name = (form.name.value || '').trim();
+    var from = (form.from.value || '').trim();
+    var topic = (form.topic.value || '').trim();
+    var body = (form.body.value || '').trim();
+    var lines = [];
+    lines.push('你好，我是' + (name || '（未署名）') + '。');
+    if (topic) lines.push('主题：' + topic);
+    lines.push('');
+    lines.push(body);
+    if (from) { lines.push(''); lines.push('联系方式：' + from); }
+    return lines.join('\n');
+  }
+
+  function copy(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function (resolve, reject) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); resolve(); } catch (e) { reject(e); }
+      ta.remove();
+    });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!(form.body.value || '').trim()) {
+      status.textContent = '先写点内容吧';
+      status.className = 'form-status warn';
+      form.body.focus();
+      return;
+    }
+    var text = compose();
+    previewText.textContent = text;
+    preview.hidden = false;
+    copy(text).then(function () {
+      status.textContent = '已复制到剪贴板';
+      status.className = 'form-status ok';
+    }).catch(function () {
+      status.textContent = '复制失败，请手动选中预览里的文字';
+      status.className = 'form-status warn';
+    });
+  });
+
+  var again = document.getElementById('copy-again');
+  if (again) again.addEventListener('click', function () {
+    copy(previewText.textContent).then(function () {
+      status.textContent = '已再次复制';
+      status.className = 'form-status ok';
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

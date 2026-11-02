@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>C 盘哨兵 · 作品 · WWS 思垣</title>
+<title>C 盘哨兵 · 作品 · look4you</title>
 <meta name="description" content="CDiskSentinel：常驻托盘的 Windows 磁盘写入监控，回答「现在是谁在写 C 盘」。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,16 +24,16 @@
           <ellipse cx="16" cy="16" rx="20" ry="7" fill="none" stroke="#2d618c" stroke-width="1.4" opacity="0.55" transform="rotate(-18 16 16)"/>
           <circle cx="16" cy="16" r="4.5" fill="#144a74"/>
         </svg>
-        <b>WWS<span class="cn">思垣</span></b>
+        <b><span data-field="nav.name" data-label="导航·品牌名" data-group="导航">look4you</span></b>
       </a>
       <div class="nav-links">
-        <a href="works.html" class="active" aria-current="page">作品</a>
-        <a href="skills.html">技能</a>
-        <a href="blog.html">博客</a>
-        <a href="about.html">关于</a>
+        <a href="works.html" class="active" aria-current="page"><span data-field="nav.l1" data-label="导航·作品" data-group="导航">作品</span></a>
+        <a href="skills.html"><span data-field="nav.l2" data-label="导航·技能" data-group="导航">技能</span></a>
+        <a href="blog.html"><span data-field="nav.l3" data-label="导航·博客" data-group="导航">博客</span></a>
+        <a href="about.html"><span data-field="nav.l4" data-label="导航·关于" data-group="导航">关于</span></a>
       </div>
       <div class="nav-actions">
-        <a class="btn-primary btn-sm" href="about.html#contact">联系我</a>
+        <a class="btn-primary btn-sm" href="contact.html"><span data-field="nav.cta" data-label="导航·联系按钮" data-group="导航">联系我</span></a>
       </div>
     </nav>
   </header>
@@ -41,27 +41,27 @@
   <main id="main">
 
     <section class="page-hero">
-      <nav class="crumb"><a href="index.html">首页</a><span class="sep">/</span><a href="works.html">作品</a><span class="sep">/</span>C 盘哨兵</nav>
+      <nav class="crumb"><a href="index.html"><span data-field="sentinel.cr1" data-label="面包屑 1" data-group="页头">首页</span></a><span class="sep">/</span><a href="works.html"><span data-field="sentinel.cr2" data-label="面包屑 2" data-group="页头">作品</span></a><span class="sep">/</span><span data-field="crumb" data-label="面包屑当前页" data-group="页头">C 盘哨兵</span></nav>
       <h1 data-field="sen.title" data-label="标题" data-group="页头">C 盘哨兵</h1>
       <p class="lede" data-field="sen.lede" data-label="导语" data-type="textarea" data-group="页头">一个常驻托盘的 Windows 小工具。当 C 盘莫名其妙少掉几个 G 的时候，它能告诉你时间、进程和目录。</p>
       <dl class="work-meta">
-        <div><dt>类型</dt><dd data-field="sen.m1" data-label="类型" data-group="页头">Windows 小工具</dd></div>
-        <div><dt>时间</dt><dd data-field="sen.m2" data-label="时间" data-group="页头">2026 年 10 月</dd></div>
-        <div><dt>角色</dt><dd data-field="sen.m3" data-label="角色" data-group="页头">独立开发</dd></div>
-        <div><dt>技术</dt><dd data-field="sen.m4" data-label="技术" data-group="页头">Python · psutil · SQLite · pystray</dd></div>
+        <div><dt data-field="sentinel.d1" data-label="元信息标签 1" data-group="页头">类型</dt><dd data-field="sen.m1" data-label="类型" data-group="页头">Windows 小工具</dd></div>
+        <div><dt data-field="sentinel.d2" data-label="元信息标签 2" data-group="页头">时间</dt><dd data-field="sen.m2" data-label="时间" data-group="页头">2026 年 10 月</dd></div>
+        <div><dt data-field="sentinel.d3" data-label="元信息标签 3" data-group="页头">角色</dt><dd data-field="sen.m3" data-label="角色" data-group="页头">独立开发</dd></div>
+        <div><dt data-field="sentinel.d4" data-label="元信息标签 4" data-group="页头">技术</dt><dd data-field="sen.m4" data-label="技术" data-group="页头">Python · psutil · SQLite · pystray</dd></div>
       </dl>
     </section>
 
     <figure class="work-cover">
       <img src="assets/works/sentinel/preview.jpg" alt="C 盘哨兵主界面" loading="lazy">
-      <figcaption>进程排行页：196 个进程、18 个正在写入，按累计写入量排序，双击任意一行可定位到 exe</figcaption>
+      <figcaption data-field="sentinel.cap1" data-label="图注 1" data-group="图注">进程排行页：196 个进程、18 个正在写入，按累计写入量排序，双击任意一行可定位到 exe</figcaption>
     </figure>
 
     <div class="stat-row">
-      <div class="stat"><b>5<em>个</em></b><span>功能页签：排行 / 膨胀 / 突发 / 历史 / 透视</span></div>
-      <div class="stat"><b>5<em>s</em></b><span>默认采样间隔，可调到 2 秒</span></div>
-      <div class="stat"><b>54<em>MB</em></b><span>常驻内存，整机 CPU 占用约 0.04%</span></div>
-      <div class="stat"><b>30<em>天</em></b><span>数据自动清理，防止日志自己把盘占满</span></div>
+      <div class="stat"><b><span data-field="sentinel.s1v" data-label="数据 1 数值" data-group="数据条">5</span><em data-field="sentinel.u1" data-label="数据 1 单位" data-group="数据条">个</em></b><span data-field="sentinel.s1l" data-label="数据 1 说明" data-group="数据条">功能页签：排行 / 膨胀 / 突发 / 历史 / 透视</span></div>
+      <div class="stat"><b><span data-field="sentinel.s2v" data-label="数据 2 数值" data-group="数据条">5</span><em data-field="sentinel.u2" data-label="数据 2 单位" data-group="数据条">s</em></b><span data-field="sentinel.s2l" data-label="数据 2 说明" data-group="数据条">默认采样间隔，可调到 2 秒</span></div>
+      <div class="stat"><b><span data-field="sentinel.s3v" data-label="数据 3 数值" data-group="数据条">54</span><em data-field="sentinel.u3" data-label="数据 3 单位" data-group="数据条">MB</em></b><span data-field="sentinel.s3l" data-label="数据 3 说明" data-group="数据条">常驻内存，整机 CPU 占用约 0.04%</span></div>
+      <div class="stat"><b><span data-field="sentinel.s4v" data-label="数据 4 数值" data-group="数据条">30</span><em data-field="sentinel.u4" data-label="数据 4 单位" data-group="数据条">天</em></b><span data-field="sentinel.s4l" data-label="数据 4 说明" data-group="数据条">数据自动清理，防止日志自己把盘占满</span></div>
     </div>
 
     <section class="article">
@@ -78,24 +78,24 @@
 
         <h2 data-field="sen.h2" data-label="小标题2" data-group="正文">五个页签各管一件事</h2>
         <table class="spec">
-          <caption>每个页签对应一个提问方式</caption>
+          <caption data-field="sentinel.tcap1" data-label="表格标题" data-group="表头与表格">每个页签对应一个提问方式</caption>
           <tbody>
-            <tr><th>进程排行</th><td>本次运行以来每个进程累计写了多少、读了多少、当前速率。<b>按写入量排序</b>，冒头的就是嫌疑对象；双击某一行可在资源管理器里定位它的 exe。</td></tr>
-            <tr><th>目录膨胀</th><td>把关注的目录（AppData、Downloads、ProgramData、Windows\Temp 等）每 30 分钟量一次体积。「较上次变化」列才是重点：红字正增长说明这个目录在长。</td></tr>
-            <tr><th>突发写入</th><td>单次采样里某个进程写入超过 100 MB 就记一条。<b>「空间突然少了好几个 G」的时刻，回这里找时间点。</b></td></tr>
-            <tr><th>历史查询</th><td>按时间段汇总。程序关掉再开，数据还在——存在数据库里，CSV 按天滚动，可直接用 Excel 打开。</td></tr>
-            <tr><th>空间透视</th><td>一次性体检：选路径、开始扫描，看哪个子目录最占地方。双击可下钻，一层层点到真正的元凶。</td></tr>
+            <tr><th data-field="sentinel.t1h" data-label="表第 1 行·名称" data-group="表头与表格">进程排行</th><td data-field="sentinel.t1d" data-label="表第 1 行·说明" data-group="表头与表格">本次运行以来每个进程累计写了多少、读了多少、当前速率。<b>按写入量排序</b>，冒头的就是嫌疑对象；双击某一行可在资源管理器里定位它的 exe。</td></tr>
+            <tr><th data-field="sentinel.t2h" data-label="表第 2 行·名称" data-group="表头与表格">目录膨胀</th><td data-field="sentinel.t2d" data-label="表第 2 行·说明" data-group="表头与表格">把关注的目录（AppData、Downloads、ProgramData、Windows\Temp 等）每 30 分钟量一次体积。「较上次变化」列才是重点：红字正增长说明这个目录在长。</td></tr>
+            <tr><th data-field="sentinel.t3h" data-label="表第 3 行·名称" data-group="表头与表格">突发写入</th><td data-field="sentinel.t3d" data-label="表第 3 行·说明" data-group="表头与表格">单次采样里某个进程写入超过 100 MB 就记一条。<b>「空间突然少了好几个 G」的时刻，回这里找时间点。</b></td></tr>
+            <tr><th data-field="sentinel.t4h" data-label="表第 4 行·名称" data-group="表头与表格">历史查询</th><td data-field="sentinel.t4d" data-label="表第 4 行·说明" data-group="表头与表格">按时间段汇总。程序关掉再开，数据还在——存在数据库里，CSV 按天滚动，可直接用 Excel 打开。</td></tr>
+            <tr><th data-field="sentinel.t5h" data-label="表第 5 行·名称" data-group="表头与表格">空间透视</th><td data-field="sentinel.t5d" data-label="表第 5 行·说明" data-group="表头与表格">一次性体检：选路径、开始扫描，看哪个子目录最占地方。双击可下钻，一层层点到真正的元凶。</td></tr>
           </tbody>
         </table>
 
         <h2 data-field="sen.h3" data-label="小标题3" data-group="正文">它自己占多少资源</h2>
         <p data-field="sen.p3" data-label="段落3" data-type="textarea" data-group="正文">监控工具最怕「监控本身成了负担」。所以后台线程跑在最低优先级，目录扫描做了限速（干一会儿歇一会儿），打游戏时基本无感。</p>
         <table class="spec">
-          <caption>本机实测（i7-13700H / 20 线程 / NVMe SSD）</caption>
+          <caption data-field="sentinel.tcap2" data-label="表格标题" data-group="表头与表格">本机实测（i7-13700H / 20 线程 / NVMe SSD）</caption>
           <tbody>
-            <tr><th>平时挂后台</th><td>约 0.8% 单核（整机 0.04%），内存 54 MB</td></tr>
-            <tr><th>目录扫描中</th><td>约 58% 单核（整机 2.9%），每 30 分钟一次，持续 15–30 秒</td></tr>
-            <tr><th>数据库增长</th><td>每天几 MB 到几十 MB，30 天自动清理</td></tr>
+            <tr><th data-field="sentinel.t6h" data-label="表第 6 行·名称" data-group="表头与表格">平时挂后台</th><td data-field="sentinel.t6d" data-label="表第 6 行·说明" data-group="表头与表格">约 0.8% 单核（整机 0.04%），内存 54 MB</td></tr>
+            <tr><th data-field="sentinel.t7h" data-label="表第 7 行·名称" data-group="表头与表格">目录扫描中</th><td data-field="sentinel.t7d" data-label="表第 7 行·说明" data-group="表头与表格">约 58% 单核（整机 2.9%），每 30 分钟一次，持续 15–30 秒</td></tr>
+            <tr><th data-field="sentinel.t8h" data-label="表第 8 行·名称" data-group="表头与表格">数据库增长</th><td data-field="sentinel.t8d" data-label="表第 8 行·说明" data-group="表头与表格">每天几 MB 到几十 MB，30 天自动清理</td></tr>
           </tbody>
         </table>
 
@@ -111,8 +111,8 @@
     </section>
 
     <nav class="work-nav" aria-label="作品导航">
-      <a href="work-comet.html"><span class="dir">上一个</span>← 彗星 Comet</a>
-      <a href="work-inverter.html"><span class="dir">下一个</span>三相 SPWM 逆变器 →</a>
+      <a href="work-comet.html"><span class="dir" data-field="sentinel.nav1" data-label="上下篇方向词 1" data-group="页尾导航">上一个</span><span data-field="sentinel.pn1" data-label="上下篇 1 标题" data-group="页尾导航">← 彗星 Comet</span></a>
+      <a href="work-inverter.html"><span class="dir" data-field="sentinel.nav2" data-label="上下篇方向词 2" data-group="页尾导航">下一个</span><span data-field="sentinel.pn2" data-label="上下篇 2 标题" data-group="页尾导航">三相 SPWM 逆变器 →</span></a>
     </nav>
 
   </main>
@@ -122,47 +122,47 @@
   <div class="foot-inner">
     <div class="foot-top">
       <div class="mark">
-        <div class="wm-name">WWS<span class="cn"> · 思垣</span></div>
-        <div class="wm-sub">作品 · 技能 · 博客</div>
-        <div class="wm-ver">v1.2.0 · 持续更新</div>
+        <div class="wm-name"><span data-field="footer.name" data-label="页脚品牌名" data-group="页脚">look4you</span></div>
+        <div class="wm-sub" data-field="footer.sub" data-label="页脚副标题" data-group="页脚">作品 · 技能 · 博客</div>
+        <div class="wm-ver" data-field="footer.ver" data-label="页脚版本行" data-group="页脚">v1.3.0 · 持续更新</div>
       </div>
       <div class="foot-cols">
         <div class="foot-col">
-          <div class="foot-col-title">作品</div>
-          <a href="work-comet.html">彗星 Comet</a>
-          <a href="work-sentinel.html">C 盘哨兵</a>
-          <a href="work-inverter.html">三相 SPWM 逆变器</a>
-          <a href="work-skills.html">技能包 Toolchain</a>
+          <div class="foot-col-title" data-field="footer.c1t" data-label="页脚·作品·标题" data-group="页脚">作品</div>
+          <a href="work-comet.html"><span data-field="footer.c1l1" data-label="页脚·作品·链接1" data-group="页脚">彗星 Comet</span></a>
+          <a href="work-sentinel.html"><span data-field="footer.c1l2" data-label="页脚·作品·链接2" data-group="页脚">C 盘哨兵</span></a>
+          <a href="work-inverter.html"><span data-field="footer.c1l3" data-label="页脚·作品·链接3" data-group="页脚">三相逆变器</span></a>
+          <a href="work-skills.html"><span data-field="footer.c1l4" data-label="页脚·作品·链接4" data-group="页脚">技能包</span></a>
         </div>
         <div class="foot-col">
-          <div class="foot-col-title">技能</div>
-          <a href="skills.html">电路设计</a>
-          <a href="skills.html">单片机</a>
-          <a href="skills.html">摄影后期</a>
-          <a href="skills.html">三维建模</a>
+          <div class="foot-col-title" data-field="footer.c2t" data-label="页脚·技能·标题" data-group="页脚">技能</div>
+          <a href="skills.html"><span data-field="footer.c2l1" data-label="页脚·技能·链接1" data-group="页脚">电路设计</span></a>
+          <a href="skills.html"><span data-field="footer.c2l2" data-label="页脚·技能·链接2" data-group="页脚">单片机</span></a>
+          <a href="skills.html"><span data-field="footer.c2l3" data-label="页脚·技能·链接3" data-group="页脚">摄影后期</span></a>
+          <a href="skills.html"><span data-field="footer.c2l4" data-label="页脚·技能·链接4" data-group="页脚">三维建模</span></a>
         </div>
         <div class="foot-col">
-          <div class="foot-col-title">博客</div>
-          <a href="blog.html">项目复盘</a>
-          <a href="blog.html">技术笔记</a>
-          <a href="blog.html">生活随笔</a>
+          <div class="foot-col-title" data-field="footer.c3t" data-label="页脚·博客·标题" data-group="页脚">博客</div>
+          <a href="blog.html"><span data-field="footer.c3l1" data-label="页脚·博客·链接1" data-group="页脚">项目复盘</span></a>
+          <a href="blog.html"><span data-field="footer.c3l2" data-label="页脚·博客·链接2" data-group="页脚">技术笔记</span></a>
+          <a href="blog.html"><span data-field="footer.c3l3" data-label="页脚·博客·链接3" data-group="页脚">生活随笔</span></a>
         </div>
         <div class="foot-col">
-          <div class="foot-col-title">关于</div>
-          <a href="about.html">简介</a>
-          <a href="https://github.com/look4you-yuan">GitHub</a>
-          <a href="works.html">作品集</a>
+          <div class="foot-col-title" data-field="footer.c4t" data-label="页脚·关于·标题" data-group="页脚">关于</div>
+          <a href="about.html"><span data-field="footer.c4l1" data-label="页脚·关于·链接1" data-group="页脚">简介</span></a>
+          <a href="https://github.com/look4you-yuan"><span data-field="footer.c4l2" data-label="页脚·关于·链接2" data-group="页脚">GitHub</span></a>
+          <a href="works.html"><span data-field="footer.c4l3" data-label="页脚·关于·链接3" data-group="页脚">作品集</span></a>
         </div>
         <div class="foot-col">
-          <div class="foot-col-title">联系</div>
-          <a href="about.html#contact">交流</a>
-          <a href="about.html#contact">合作</a>
+          <div class="foot-col-title" data-field="footer.c5t" data-label="页脚·联系·标题" data-group="页脚">联系</div>
+          <a href="contact.html"><span data-field="footer.c5l1" data-label="页脚·联系·链接1" data-group="页脚">聊聊</span></a>
+          <a href="contact.html"><span data-field="footer.c5l2" data-label="页脚·联系·链接2" data-group="页脚">合作</span></a>
         </div>
       </div>
     </div>
     <div class="foot-bottom">
-      <span class="ethos">安静地做，认真地记录。</span>
-      <span>© 2026 WWS · 思垣</span>
+      <span class="ethos" data-field="footer.ethos" data-label="页脚格言" data-group="页脚">安静地做，认真地记录。</span>
+      <span data-field="footer.copy" data-label="页脚版权行" data-group="页脚">© 2026 look4you</span>
     </div>
   </div>
 </footer>
@@ -175,6 +175,7 @@
 <div id="editor-drawer" class="editor-drawer" hidden></div>
 
 <script src="editor.js"></script>
+<script src="motion.js"></script>
 
 </body>
 </html>
