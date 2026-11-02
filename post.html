@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>三相逆变器 SPWM 仿真入门笔记 · WWS 思垣</title>
+<meta name="description" content="从调制波到载波，一步步在 Simulink 里搭出三相逆变器。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<div class="page">
+
+  <header class="nav-wrap">
+    <nav class="site-nav" aria-label="主导航">
+      <a class="nav-brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="13" fill="none" stroke="#144a74" stroke-width="2.4"/>
+          <ellipse cx="16" cy="16" rx="20" ry="7" fill="none" stroke="#2d618c" stroke-width="1.4" opacity="0.55" transform="rotate(-18 16 16)"/>
+          <circle cx="16" cy="16" r="4.5" fill="#144a74"/>
+        </svg>
+        <b>WWS<span class="cn">思垣</span></b>
+      </a>
+      <div class="nav-links">
+        <a href="works.html">作品</a>
+        <a href="skills.html">技能</a>
+        <a href="blog.html" class="active" aria-current="page">博客</a>
+        <a href="about.html">关于</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn-primary btn-sm" href="about.html#contact">联系我</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <article class="article">
+      <header class="article-head">
+        <nav class="crumb"><a href="index.html">首页</a><span class="sep">/</span><a href="blog.html">博客</a><span class="sep">/</span>三相逆变器 SPWM 仿真入门笔记</nav>
+        <h1>三相逆变器 SPWM 仿真入门笔记</h1>
+        <div class="article-meta">
+          <span class="date">2026-10-28</span>
+          <span class="tag">电力电子</span>
+          <span class="tag">MATLAB</span>
+        </div>
+      </header>
+
+      <div class="article-body">
+        <p>最近在啃三相逆变器，SPWM（正弦脉宽调制）是绕不开的第一关。这篇文章把我从一头雾水到跑通仿真的过程记下来，权当一份入门笔记，也给自己留个备忘。</p>
+
+        <h2>什么是 SPWM</h2>
+        <p>简单说，就是用一组等幅的三角波作载波，去和正弦波作比较，交点决定了开关管的通断时刻，从而在输出端得到一串宽度按正弦规律变化的脉冲。经过滤波后，就能近似还原出正弦电压。</p>
+        <p>三相的情况是，三路正弦调制波相位互差 120°，共用一个载波。这样三相输出电压天然对称。</p>
+
+        <h2>在 Simulink 里搭模型</h2>
+        <p>我用的思路是：调制波 + 载波 + 比较器，驱动三相桥的六个开关管。关键参数先定清楚：</p>
+        <ul>
+          <li>载波频率 5 kHz，调制波频率 50 Hz，调制度 0.8</li>
+          <li>直流母线电压 400 V，阻感负载</li>
+          <li>死区时间先设 0，跑通后再加</li>
+        </ul>
+        <p>生成调制波的 MATLAB 代码大致如下：</p>
+        <pre><code>% 三相正弦调制波
+f = 50;            % 基波频率
+fs = 5000;         % 载波频率
+t = 0:1/fs/100:0.04;
+ma = 0.8;          % 调制度
+va = ma * sin(2*pi*f*t);
+vb = ma * sin(2*pi*f*t - 2*pi/3);
+vc = ma * sin(2*pi*f*t + 2*pi/3);</code></pre>
+
+        <h2>踩过的坑</h2>
+        <p>看起来不难，但真跑起来问题不少，记几个最花时间的：</p>
+        <ol>
+          <li>仿真步长太大，脉冲波形直接糊成一片——把求解器改成固定步长、步长取载波周期的 1/20 就好多了。</li>
+          <li>负载是纯阻性时波形漂亮，换成阻感后出现振荡，查了半天发现是忽略了续流回路的建模。</li>
+          <li>一开始忘记设置死区，上下桥臂同时导通，仿真直接报错。</li>
+        </ol>
+        <blockquote>仿真不是「跑通就完了」，把波形调到自己能解释清楚，才算是真的懂了。</blockquote>
+
+        <h2>小结</h2>
+        <p>这篇文章只覆盖了最基本的开环 SPWM，后面还有闭环、死区补偿和 THD 分析。等整理清楚了再写续篇。</p>
+      </div>
+
+      <div class="article-foot">
+        <a href="blog.html">← 返回博客</a>
+        <a href="post.html">下一篇：求职复盘 →</a>
+      </div>
+    </article>
+
+  </main>
+</div>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="mark">
+        <div class="wm-name">WWS<span class="cn"> · 思垣</span></div>
+        <div class="wm-sub">作品 · 技能 · 博客</div>
+        <div class="wm-ver">v1.0.0 · 持续更新</div>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <div class="foot-col-title">作品</div>
+          <a href="works.html">光影笔记</a>
+          <a href="works.html">电气工程</a>
+          <a href="works.html">小工具</a>
+          <a href="works.html">写作</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">技能</div>
+          <a href="skills.html">电力电子</a>
+          <a href="skills.html">仿真建模</a>
+          <a href="skills.html">编程</a>
+          <a href="skills.html">摄影后期</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">博客</div>
+          <a href="blog.html">技术笔记</a>
+          <a href="blog.html">求职复盘</a>
+          <a href="blog.html">生活随笔</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">关于</div>
+          <a href="about.html">简介</a>
+          <a href="about.html">GitHub</a>
+          <a href="about.html">邮箱</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">联系</div>
+          <a href="about.html#contact">交流</a>
+          <a href="about.html#contact">合作</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="ethos">安静地做，认真地记录。</span>
+      <span>© 2026 WWS · 思垣</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

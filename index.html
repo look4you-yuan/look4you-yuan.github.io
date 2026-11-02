@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WWS · 思垣 — 作品 · 技能 · 博客</title>
+<meta name="description" content="WWS 的个人主页，陈列作品、技能与博客。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<div class="page">
+
+  <!-- ===================== 导航 ===================== -->
+  <header class="nav-wrap">
+    <nav class="site-nav" aria-label="主导航">
+      <a class="nav-brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="13" fill="none" stroke="#144a74" stroke-width="2.4"/>
+          <ellipse cx="16" cy="16" rx="20" ry="7" fill="none" stroke="#2d618c" stroke-width="1.4" opacity="0.55" transform="rotate(-18 16 16)"/>
+          <circle cx="16" cy="16" r="4.5" fill="#144a74"/>
+        </svg>
+        <b><span data-field="nav.name">WWS</span><span class="cn" data-field="nav.cn">思垣</span></b>
+      </a>
+      <div class="nav-links">
+        <a href="works.html" data-field="nav.l1">作品</a>
+        <a href="skills.html" data-field="nav.l2">技能</a>
+        <a href="blog.html" data-field="nav.l3">博客</a>
+        <a href="about.html" data-field="nav.l4">关于</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn-primary btn-sm" href="about.html#contact" data-field="nav.cta">联系我</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ===================== Hero ===================== -->
+    <section class="hero" id="top">
+      <h1><span data-field="hero.name">WWS</span><span class="cn" data-field="hero.cn"> · 思垣</span></h1>
+      <p class="tagline" data-field="hero.tagline">把做过的事、写下的字、拍到的光，安静地收在一处 —— 我的作品、技能与博客，都在这里。</p>
+      <p class="hero-trust"><span data-field="hero.trust">作品集 · 技能 · 博客 · 摄影 · 电气工程 · 持续更新</span></p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="works.html" data-field="hero.cta1">浏览作品</a>
+        <a class="btn-ghost" href="about.html" data-field="hero.cta2">关于我</a>
+      </div>
+    </section>
+
+    <!-- ===================== 作品 ===================== -->
+    <section class="section reveal" id="works">
+      <div class="section-head">
+        <p class="section-eyebrow" data-field="works.eyebrow">WORKS</p>
+        <h2 class="section-title" data-field="works.title">作品</h2>
+        <p class="section-lede" data-field="works.lede">以前要把项目、照片和笔记分散在好几个地方，现在都收在这里。</p>
+      </div>
+
+      <div class="feature-cards" data-list="works">
+
+        <article class="fcard">
+          <figure class="fcard-media">
+            <div class="work-icon c-amber" data-icon="camera">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+            </div>
+          </figure>
+          <div class="fcard-body">
+            <h3 class="fcard-name"><span>光影笔记</span><span class="tag">摄影</span></h3>
+            <ul class="fcard-points">
+              <li>街头与风光摄影，偏爱晨昏的光线</li>
+              <li>人像与活动跟拍，捕捉真实瞬间</li>
+              <li>Lightroom 后期调色与批量输出</li>
+              <li>精选成册，可在线浏览</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="fcard">
+          <figure class="fcard-media">
+            <div class="work-icon c-navy" data-icon="scope">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="15" rx="2"/><path d="M2 11h4l2-4 3 8 2.5-6 1.5 2h7"/></svg>
+            </div>
+          </figure>
+          <div class="fcard-body">
+            <h3 class="fcard-name"><span>电气工程</span><span class="tag">仿真 · 设计</span></h3>
+            <ul class="fcard-points">
+              <li>三相逆变器 SPWM 调制与仿真</li>
+              <li>MATLAB / Simulink 建模与波形分析</li>
+              <li>电路分析与调试，实习沉淀</li>
+              <li>变电站与成套电气实践</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="fcard">
+          <figure class="fcard-media">
+            <div class="work-icon c-sage" data-icon="code">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+            </div>
+          </figure>
+          <div class="fcard-body">
+            <h3 class="fcard-name"><span>小工具</span><span class="tag">脚本 · 自动化</span></h3>
+            <ul class="fcard-points">
+              <li>Python 小脚本，处理重复劳动</li>
+              <li>数据清洗与批量处理</li>
+              <li>求职、选岗等效率工具</li>
+              <li>开源，欢迎交流</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="fcard">
+          <figure class="fcard-media">
+            <div class="work-icon c-terracotta" data-icon="feather">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
+            </div>
+          </figure>
+          <div class="fcard-body">
+            <h3 class="fcard-name"><span>写作</span><span class="tag">笔记 · 博客</span></h3>
+            <ul class="fcard-points">
+              <li>技术博客与学习笔记</li>
+              <li>求职复盘与笔试经验</li>
+              <li>读书与生活随笔</li>
+              <li>定期更新</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===================== 技能 ===================== -->
+    <section class="section reveal" id="skills">
+      <div class="section-head">
+        <p class="section-eyebrow" data-field="skills.eyebrow">SKILLS</p>
+        <h2 class="section-title" data-field="skills.title">技能</h2>
+        <p class="section-lede" data-field="skills.lede">这里是我平时会用到的东西，按熟悉程度排列。</p>
+      </div>
+
+      <ul class="skill-grid" data-list="skills">
+        <li class="skill-tile"><span class="skill-glyph">MAT</span><span class="skill-name">MATLAB</span></li>
+        <li class="skill-tile"><span class="skill-glyph">SIM</span><span class="skill-name">Simulink</span></li>
+        <li class="skill-tile"><span class="skill-glyph">SP</span><span class="skill-name">SPWM 调制</span></li>
+        <li class="skill-tile"><span class="skill-glyph">3Φ</span><span class="skill-name">三相逆变器</span></li>
+        <li class="skill-tile"><span class="skill-glyph">PE</span><span class="skill-name">电力电子</span></li>
+        <li class="skill-tile"><span class="skill-glyph">CA</span><span class="skill-name">电路分析</span></li>
+        <li class="skill-tile"><span class="skill-glyph">Py</span><span class="skill-name">Python</span></li>
+        <li class="skill-tile"><span class="skill-glyph">C</span><span class="skill-name">C / C++</span></li>
+        <li class="skill-tile"><span class="skill-glyph">MCU</span><span class="skill-name">单片机</span></li>
+        <li class="skill-tile"><span class="skill-glyph">PCB</span><span class="skill-name">PCB 设计</span></li>
+        <li class="skill-tile"><span class="skill-glyph">AC</span><span class="skill-name">自动控制</span></li>
+        <li class="skill-tile"><span class="skill-glyph">PWR</span><span class="skill-name">变电站运维</span></li>
+        <li class="skill-tile"><span class="skill-glyph">PIX</span><span class="skill-name">摄影</span></li>
+        <li class="skill-tile"><span class="skill-glyph">LR</span><span class="skill-name">Lightroom</span></li>
+        <li class="skill-tile"><span class="skill-glyph">DOC</span><span class="skill-name">写作 / Markdown</span></li>
+        <li class="skill-tile"><span class="skill-glyph">DA</span><span class="skill-name">数据分析</span></li>
+        <li class="skill-tile"><span class="skill-glyph">OFF</span><span class="skill-name">Office</span></li>
+        <li class="skill-tile"><span class="skill-glyph">BOX</span><span class="skill-name">成套电气</span></li>
+      </ul>
+    </section>
+
+    <!-- ===================== 博客 ===================== -->
+    <section class="section reveal" id="blog">
+      <div class="section-head">
+        <p class="section-eyebrow" data-field="blog.eyebrow">BLOG</p>
+        <h2 class="section-title" data-field="blog.title">博客</h2>
+        <p class="section-lede" data-field="blog.lede">随手记下的想法与经验，持续更新。</p>
+      </div>
+
+      <div class="blog-cards" data-list="blog">
+        <a class="blog-card" href="post.html">
+          <span class="blog-card-date">2026-10-28</span>
+          <h3 class="blog-card-title">三相逆变器 SPWM 仿真入门笔记</h3>
+          <p class="blog-card-desc">从调制波到载波，一步步在 Simulink 里搭出三相逆变器，记录踩过的坑。</p>
+          <span class="blog-card-more">阅读全文 →</span>
+        </a>
+        <a class="blog-card" href="post.html">
+          <span class="blog-card-date">2026-10-20</span>
+          <h3 class="blog-card-title">求职复盘：电气专业秋招笔试都考什么</h3>
+          <p class="blog-card-desc">整理国企与制造业笔试的高频考点，分享一套备考思路。</p>
+          <span class="blog-card-more">阅读全文 →</span>
+        </a>
+        <a class="blog-card" href="post.html">
+          <span class="blog-card-date">2026-10-12</span>
+          <h3 class="blog-card-title">第一次跟拍人像，我学到的事</h3>
+          <p class="blog-card-desc">关于沟通、光线和构图，一次人像拍摄的完整复盘。</p>
+          <span class="blog-card-more">阅读全文 →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================== 关于 / 联系 ===================== -->
+    <section class="section reveal" id="about">
+      <div class="section-head">
+        <p class="section-eyebrow" data-field="about.eyebrow">ABOUT</p>
+        <h2 class="section-title" data-field="about.title">关于我</h2>
+        <p class="section-lede" data-field="about.lede">你好，我是思垣，欢迎交流。</p>
+      </div>
+
+      <div class="about-wrap">
+        <div class="about-bio">
+          <p data-field="about.bio1">西南科技大学电气工程本科在读，方向偏电力系统与电力电子。平时做三相逆变器的仿真、写点小脚本，也喜欢背着相机到处走，把路上的光收进镜头。</p>
+          <p data-field="about.bio2">这个网站是我的一个小小陈列馆：作品、技能、博客都放在这里。如果你也对这些感兴趣，欢迎通过下面的方式找到我。</p>
+        </div>
+
+        <div class="contact-cards" data-list="contact">
+          <a class="contact-card" href="about.html">
+            <span class="contact-glyph">GH</span>
+            <span class="contact-meta">
+              <span class="contact-handle">GitHub</span>
+              <span class="contact-sub">开源项目与脚本</span>
+            </span>
+          </a>
+          <a class="contact-card" href="mailto:hi@example.com">
+            <span class="contact-glyph">@</span>
+            <span class="contact-meta">
+              <span class="contact-handle">邮箱</span>
+              <span class="contact-sub">hi@example.com</span>
+            </span>
+          </a>
+          <a class="contact-card" href="about.html">
+            <span class="contact-glyph">X</span>
+            <span class="contact-meta">
+              <span class="contact-handle">社交账号</span>
+              <span class="contact-sub">摄影与日常</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ===================== 页脚 ===================== -->
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="mark">
+        <div class="wm-name"><span data-field="foot.name">WWS</span><span class="cn" data-field="foot.cn"> · 思垣</span></div>
+        <div class="wm-sub" data-field="foot.sub">作品 · 技能 · 博客</div>
+        <div class="wm-ver" data-field="foot.ver">v1.0.0 · 持续更新</div>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <div class="foot-col-title">作品</div>
+          <a href="works.html">光影笔记</a>
+          <a href="works.html">电气工程</a>
+          <a href="works.html">小工具</a>
+          <a href="works.html">写作</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">技能</div>
+          <a href="skills.html">电力电子</a>
+          <a href="skills.html">仿真建模</a>
+          <a href="skills.html">编程</a>
+          <a href="skills.html">摄影后期</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">博客</div>
+          <a href="blog.html">技术笔记</a>
+          <a href="blog.html">求职复盘</a>
+          <a href="blog.html">生活随笔</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">关于</div>
+          <a href="about.html">简介</a>
+          <a href="about.html">GitHub</a>
+          <a href="about.html">邮箱</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">联系</div>
+          <a href="about.html#contact">交流</a>
+          <a href="about.html#contact">合作</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="ethos" data-field="foot.ethos">安静地做，认真地记录。</span>
+      <span data-field="foot.copy">© 2026 WWS · 思垣</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== 内容控制台 ===================== -->
+<button class="editor-fab" type="button" title="打开内容控制台（Ctrl/Cmd+E）" aria-label="打开内容控制台">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 20h9"></path>
+    <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+  </svg>
+</button>
+<div id="editor-drawer" class="editor-drawer" hidden></div>
+
+<script src="editor.js"></script>
+<script>
+  // 滚动显现
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+# 本地临时文件与缓存
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
