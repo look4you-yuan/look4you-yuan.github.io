@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-page="about">
 
 <a class="skip-link" href="#main">跳到主要内容</a>
 
@@ -42,41 +42,86 @@
 
     <section class="page-hero">
       <nav class="crumb"><a href="index.html">首页</a><span class="sep">/</span>关于</nav>
-      <h1>关于我</h1>
-      <p class="lede">你好，我是思垣。这里是关于我的一些事。</p>
+      <h1 data-field="page.title" data-label="页面标题" data-group="页头">关于我</h1>
+      <p class="lede" data-field="page.lede" data-label="页面导语" data-type="textarea" data-group="页头">你好，我是思垣。这里是关于我的一些事。</p>
     </section>
 
     <div class="about-wrap">
       <div class="about-bio">
-        <p>西南科技大学电气工程本科在读，方向偏电力系统与电力电子。平时做三相逆变器的仿真、写点小脚本，也喜欢背着相机到处走，把路上的光收进镜头。</p>
-        <p>这个网站是我的一个小小陈列馆——作品、技能、博客都放在这里。搭它的初衷很简单：把分散在各处的东西收拢到一处，安安静静地展示出来。</p>
-        <p>如果你也对这些感兴趣，或者有合作、交流的想法，欢迎通过下面的方式找到我。</p>
+        <p data-field="bio.1" data-label="简介第一段" data-type="textarea" data-group="简介">西南科技大学电气工程及其自动化专业，2023 级。喜欢把电路画到能跑起来，也喜欢背着相机到处走。</p>
+        <p data-field="bio.2" data-label="简介第二段" data-type="textarea" data-group="简介">做过人体感应小夜灯这类从方案到实物的硬件项目，玩过航模，也在电气调试、新能源电站和智能变电站实习过。相比纸面上的推演，我更喜欢动手把东西真正做出来。</p>
+        <p data-field="bio.3" data-label="简介第三段" data-type="textarea" data-group="简介">这个网站是我的一个小小陈列馆——作品、技能、博客都放在这里。如果你也对这些感兴趣，或者有交流的想法，欢迎通过下面的方式找到我。</p>
       </div>
 
-      <div class="contact-cards" id="contact">
-        <a class="contact-card" href="about.html">
-          <span class="contact-glyph">GH</span>
+      <div class="contact-cards" id="contact" data-list="contact" data-label="联系卡片">
+        <a class="contact-card" href="https://github.com/look4you-yuan" data-item>
+          <span class="contact-glyph" data-field="glyph" data-label="图标字">GH</span>
           <span class="contact-meta">
-            <span class="contact-handle">GitHub</span>
-            <span class="contact-sub">开源项目与脚本</span>
+            <span class="contact-handle" data-field="handle" data-label="名称">GitHub</span>
+            <span class="contact-sub" data-field="sub" data-label="说明">开源项目与脚本</span>
           </span>
         </a>
-        <a class="contact-card" href="mailto:hi@example.com">
-          <span class="contact-glyph">@</span>
+        <a class="contact-card" href="blog.html" data-item>
+          <span class="contact-glyph" data-field="glyph" data-label="图标字">✎</span>
           <span class="contact-meta">
-            <span class="contact-handle">邮箱</span>
-            <span class="contact-sub">hi@example.com</span>
+            <span class="contact-handle" data-field="handle" data-label="名称">博客</span>
+            <span class="contact-sub" data-field="sub" data-label="说明">技术笔记与随笔</span>
           </span>
         </a>
-        <a class="contact-card" href="about.html">
-          <span class="contact-glyph">X</span>
+        <a class="contact-card" href="works.html" data-item>
+          <span class="contact-glyph" data-field="glyph" data-label="图标字">◈</span>
           <span class="contact-meta">
-            <span class="contact-handle">社交账号</span>
-            <span class="contact-sub">摄影与日常</span>
+            <span class="contact-handle" data-field="handle" data-label="名称">作品集</span>
+            <span class="contact-sub" data-field="sub" data-label="说明">做过的项目</span>
           </span>
         </a>
       </div>
     </div>
+
+    <section class="exp-section">
+      <div class="section-head">
+        <h2 class="section-title" data-field="exp.title" data-label="区块标题" data-group="经历">经历</h2>
+        <p class="section-lede" data-field="exp.lede" data-label="导语" data-type="textarea" data-group="经历">实习与校园经历，按时间倒序。</p>
+      </div>
+      <ul class="exp-list" data-list="exp" data-label="经历条目">
+        <li class="exp-item" data-item>
+          <span class="exp-time" data-field="time" data-label="时间">2026.07</span>
+          <span class="exp-body">
+            <span class="exp-name" data-field="name" data-label="标题">智能变电站与成套电气实训</span>
+            <span class="exp-desc" data-field="desc" data-label="说明">参观 110kV 智能变电站，了解一次设备与二次回路；在成套电气车间熟悉开关柜与箱变。</span>
+          </span>
+        </li>
+        <li class="exp-item" data-item>
+          <span class="exp-time" data-field="time" data-label="时间">2025.07 — 2025.08</span>
+          <span class="exp-body">
+            <span class="exp-name" data-field="name" data-label="标题">新能源电站巡检实习</span>
+            <span class="exp-desc" data-field="desc" data-label="说明">参与风电与光伏电站的日常巡检，记录设备运行参数，学习电站运维的基本流程。</span>
+          </span>
+        </li>
+        <li class="exp-item" data-item>
+          <span class="exp-time" data-field="time" data-label="时间">2025.06 — 2025.07</span>
+          <span class="exp-body">
+            <span class="exp-name" data-field="name" data-label="标题">电气调试实习</span>
+            <span class="exp-desc" data-field="desc" data-label="说明">在电气设备公司参与调试工作，接触真实项目的接线、测试与排故。</span>
+          </span>
+        </li>
+        <li class="exp-item" data-item>
+          <span class="exp-time" data-field="time" data-label="时间">2024.09 — 2025.06</span>
+          <span class="exp-body">
+            <span class="exp-name" data-field="name" data-label="标题">航空航天学社成员</span>
+            <span class="exp-desc" data-field="desc" data-label="说明">学习模拟飞行、地面站调试与航模组装，参与校级航模比赛的策划。</span>
+          </span>
+        </li>
+        <li class="exp-item" data-item>
+          <span class="exp-time" data-field="time" data-label="时间">2023.09 — 2024.06</span>
+          <span class="exp-body">
+            <span class="exp-name" data-field="name" data-label="标题">校羽毛球协会干事</span>
+            <span class="exp-desc" data-field="desc" data-label="说明">学习竞赛规则与裁判法，参与校内比赛裁判工作与市级高校联赛的筹备。</span>
+          </span>
+        </li>
+      </ul>
+    </section>
+
   </main>
 </div>
 
@@ -86,34 +131,34 @@
       <div class="mark">
         <div class="wm-name">WWS<span class="cn"> · 思垣</span></div>
         <div class="wm-sub">作品 · 技能 · 博客</div>
-        <div class="wm-ver">v1.0.0 · 持续更新</div>
+        <div class="wm-ver">v1.1.0 · 持续更新</div>
       </div>
       <div class="foot-cols">
         <div class="foot-col">
           <div class="foot-col-title">作品</div>
+          <a href="works.html">人体感应小夜灯</a>
+          <a href="works.html">航模与飞行</a>
           <a href="works.html">光影笔记</a>
-          <a href="works.html">电气工程</a>
-          <a href="works.html">小工具</a>
           <a href="works.html">写作</a>
         </div>
         <div class="foot-col">
           <div class="foot-col-title">技能</div>
-          <a href="skills.html">电力电子</a>
-          <a href="skills.html">仿真建模</a>
-          <a href="skills.html">编程</a>
+          <a href="skills.html">电路设计</a>
+          <a href="skills.html">单片机</a>
           <a href="skills.html">摄影后期</a>
+          <a href="skills.html">三维建模</a>
         </div>
         <div class="foot-col">
           <div class="foot-col-title">博客</div>
+          <a href="blog.html">项目复盘</a>
           <a href="blog.html">技术笔记</a>
-          <a href="blog.html">求职复盘</a>
           <a href="blog.html">生活随笔</a>
         </div>
         <div class="foot-col">
           <div class="foot-col-title">关于</div>
           <a href="about.html">简介</a>
-          <a href="about.html">GitHub</a>
-          <a href="about.html">邮箱</a>
+          <a href="https://github.com/look4you-yuan">GitHub</a>
+          <a href="works.html">作品集</a>
         </div>
         <div class="foot-col">
           <div class="foot-col-title">联系</div>
@@ -128,6 +173,15 @@
     </div>
   </div>
 </footer>
+
+<button class="editor-fab" type="button" title="打开内容控制台（Ctrl/Cmd+E）" aria-label="打开内容控制台">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+  </svg>
+</button>
+<div id="editor-drawer" class="editor-drawer" hidden></div>
+
+<script src="editor.js"></script>
 
 </body>
 </html>

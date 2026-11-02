@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>三相逆变器 SPWM 仿真入门笔记 · WWS 思垣</title>
-<meta name="description" content="从调制波到载波，一步步在 Simulink 里搭出三相逆变器。">
+<title>人体感应小夜灯：从方案到实物的完整复盘 · WWS 思垣</title>
+<meta name="description" content="从器件选型、Multisim 仿真，到 PCB 打样与焊接调试的完整记录。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-page="post">
 
 <a class="skip-link" href="#main">跳到主要内容</a>
 
@@ -42,55 +42,42 @@
 
     <article class="article">
       <header class="article-head">
-        <nav class="crumb"><a href="index.html">首页</a><span class="sep">/</span><a href="blog.html">博客</a><span class="sep">/</span>三相逆变器 SPWM 仿真入门笔记</nav>
-        <h1>三相逆变器 SPWM 仿真入门笔记</h1>
+        <nav class="crumb"><a href="index.html">首页</a><span class="sep">/</span><a href="blog.html">博客</a><span class="sep">/</span>人体感应小夜灯</nav>
+        <h1 data-field="title" data-label="文章标题" data-group="文章">人体感应小夜灯：从方案到实物的完整复盘</h1>
         <div class="article-meta">
-          <span class="date">2026-10-28</span>
-          <span class="tag">电力电子</span>
-          <span class="tag">MATLAB</span>
+          <span class="date" data-field="date" data-label="日期" data-group="文章">2025-06-20</span>
+          <span class="tag" data-field="tag1" data-label="标签 1" data-group="文章">硬件</span>
+          <span class="tag" data-field="tag2" data-label="标签 2" data-group="文章">模电</span>
         </div>
       </header>
 
       <div class="article-body">
-        <p>最近在啃三相逆变器，SPWM（正弦脉宽调制）是绕不开的第一关。这篇文章把我从一头雾水到跑通仿真的过程记下来，权当一份入门笔记，也给自己留个备忘。</p>
+        <p data-field="p1" data-label="引言" data-type="textarea" data-group="正文">这个项目从三月开始，到六月收尾，前后两个多月。中间从选型、仿真、画板、打样到焊接调试，几乎每一步都踩了坑。这篇把过程完整记下来。</p>
 
-        <h2>什么是 SPWM</h2>
-        <p>简单说，就是用一组等幅的三角波作载波，去和正弦波作比较，交点决定了开关管的通断时刻，从而在输出端得到一串宽度按正弦规律变化的脉冲。经过滤波后，就能近似还原出正弦电压。</p>
-        <p>三相的情况是，三路正弦调制波相位互差 120°，共用一个载波。这样三相输出电压天然对称。</p>
+        <h2 data-field="h1" data-label="小标题 1" data-group="正文">需求与方案</h2>
+        <p data-field="p2" data-label="段落 2" data-type="textarea" data-group="正文">需求很简单：暗光环境下有人经过，灯亮；延时一段时间后自动熄灭；白天不亮。为了在成本可控的前提下实现，我选择用纯模拟电路完成，核心是 LM324 运放和 555 定时器。</p>
 
-        <h2>在 Simulink 里搭模型</h2>
-        <p>我用的思路是：调制波 + 载波 + 比较器，驱动三相桥的六个开关管。关键参数先定清楚：</p>
+        <h2 data-field="h2" data-label="小标题 2" data-group="正文">电路设计</h2>
+        <p data-field="p3" data-label="段落 3" data-type="textarea" data-group="正文">整个电路分成四个模块：红外信号检测、微弱信号放大、逻辑控制、LED 驱动。每个模块单独调试，确认无误后再级联。</p>
         <ul>
-          <li>载波频率 5 kHz，调制波频率 50 Hz，调制度 0.8</li>
-          <li>直流母线电压 400 V，阻感负载</li>
-          <li>死区时间先设 0，跑通后再加</li>
+          <li data-field="li1" data-label="要点 1" data-group="正文">信号检测：热释电红外传感器输出微弱电压信号</li>
+          <li data-field="li2" data-label="要点 2" data-group="正文">信号放大：LM324 组成两级放大，把毫伏级信号抬到可用范围</li>
+          <li data-field="li3" data-label="要点 3" data-group="正文">逻辑控制：比较器判断阈值，配合光敏电阻做环境光强判别</li>
+          <li data-field="li4" data-label="要点 4" data-group="正文">LED 驱动：三极管驱动灯组，555 定时器负责延时熄灭</li>
         </ul>
-        <p>生成调制波的 MATLAB 代码大致如下：</p>
-        <pre><code>% 三相正弦调制波
-f = 50;            % 基波频率
-fs = 5000;         % 载波频率
-t = 0:1/fs/100:0.04;
-ma = 0.8;          % 调制度
-va = ma * sin(2*pi*f*t);
-vb = ma * sin(2*pi*f*t - 2*pi/3);
-vc = ma * sin(2*pi*f*t + 2*pi/3);</code></pre>
 
-        <h2>踩过的坑</h2>
-        <p>看起来不难，但真跑起来问题不少，记几个最花时间的：</p>
-        <ol>
-          <li>仿真步长太大，脉冲波形直接糊成一片——把求解器改成固定步长、步长取载波周期的 1/20 就好多了。</li>
-          <li>负载是纯阻性时波形漂亮，换成阻感后出现振荡，查了半天发现是忽略了续流回路的建模。</li>
-          <li>一开始忘记设置死区，上下桥臂同时导通，仿真直接报错。</li>
-        </ol>
-        <blockquote>仿真不是「跑通就完了」，把波形调到自己能解释清楚，才算是真的懂了。</blockquote>
+        <h2 data-field="h3" data-label="小标题 3" data-group="正文">仿真与调试</h2>
+        <p data-field="p4" data-label="段落 4" data-type="textarea" data-group="正文">先在 Multisim 里把每个模块单独仿真，确认静态工作点和放大倍数，再连起来跑整体。窗口比较器的阈值一开始没设好，白天也会误触发，调了很久才稳定。</p>
+        <blockquote>仿真能跑通，不等于实物能跑通——这是这个项目最大的体会。</blockquote>
 
-        <h2>小结</h2>
-        <p>这篇文章只覆盖了最基本的开环 SPWM，后面还有闭环、死区补偿和 THD 分析。等整理清楚了再写续篇。</p>
+        <h2 data-field="h4" data-label="小标题 4" data-group="正文">实物与结果</h2>
+        <p data-field="p5" data-label="段落 5" data-type="textarea" data-group="正文">PCB 用 Altium Designer 绘制，第一次打样。焊接完成后逐点测量，排查了两处虚焊和一处信号耦合干扰。最终实现 10 秒级可调延时（误差小于 5%），以及环境光强的分级判别，实物演示正常。</p>
+        <blockquote>把电路从"图上的理论"变成"手里的实物"，中间隔着的全是细节。</blockquote>
       </div>
 
       <div class="article-foot">
         <a href="blog.html">← 返回博客</a>
-        <a href="post.html">下一篇：求职复盘 →</a>
+        <a href="post.html">下一篇：PCB 打样 →</a>
       </div>
     </article>
 
@@ -103,34 +90,34 @@ vc = ma * sin(2*pi*f*t + 2*pi/3);</code></pre>
       <div class="mark">
         <div class="wm-name">WWS<span class="cn"> · 思垣</span></div>
         <div class="wm-sub">作品 · 技能 · 博客</div>
-        <div class="wm-ver">v1.0.0 · 持续更新</div>
+        <div class="wm-ver">v1.1.0 · 持续更新</div>
       </div>
       <div class="foot-cols">
         <div class="foot-col">
           <div class="foot-col-title">作品</div>
+          <a href="works.html">人体感应小夜灯</a>
+          <a href="works.html">航模与飞行</a>
           <a href="works.html">光影笔记</a>
-          <a href="works.html">电气工程</a>
-          <a href="works.html">小工具</a>
           <a href="works.html">写作</a>
         </div>
         <div class="foot-col">
           <div class="foot-col-title">技能</div>
-          <a href="skills.html">电力电子</a>
-          <a href="skills.html">仿真建模</a>
-          <a href="skills.html">编程</a>
+          <a href="skills.html">电路设计</a>
+          <a href="skills.html">单片机</a>
           <a href="skills.html">摄影后期</a>
+          <a href="skills.html">三维建模</a>
         </div>
         <div class="foot-col">
           <div class="foot-col-title">博客</div>
+          <a href="blog.html">项目复盘</a>
           <a href="blog.html">技术笔记</a>
-          <a href="blog.html">求职复盘</a>
           <a href="blog.html">生活随笔</a>
         </div>
         <div class="foot-col">
           <div class="foot-col-title">关于</div>
           <a href="about.html">简介</a>
-          <a href="about.html">GitHub</a>
-          <a href="about.html">邮箱</a>
+          <a href="https://github.com/look4you-yuan">GitHub</a>
+          <a href="works.html">作品集</a>
         </div>
         <div class="foot-col">
           <div class="foot-col-title">联系</div>
@@ -145,6 +132,15 @@ vc = ma * sin(2*pi*f*t + 2*pi/3);</code></pre>
     </div>
   </div>
 </footer>
+
+<button class="editor-fab" type="button" title="打开内容控制台（Ctrl/Cmd+E）" aria-label="打开内容控制台">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+  </svg>
+</button>
+<div id="editor-drawer" class="editor-drawer" hidden></div>
+
+<script src="editor.js"></script>
 
 </body>
 </html>

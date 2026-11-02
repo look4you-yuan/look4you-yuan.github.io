@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-page="skills">
 
 <a class="skip-link" href="#main">跳到主要内容</a>
 
@@ -42,52 +42,66 @@
 
     <section class="page-hero">
       <nav class="crumb"><a href="index.html">首页</a><span class="sep">/</span>技能</nav>
-      <h1>技能</h1>
-      <p class="lede">平时会用到的东西，按领域分成三类。熟悉程度各有深浅，一直在补。</p>
+      <h1 data-field="page.title" data-label="页面标题" data-group="页头">技能</h1>
+      <p class="lede" data-field="page.lede" data-label="页面导语" data-type="textarea" data-group="页头">从电路到代码，再到镜头。分四类整理，熟悉程度各有深浅，一直在补。</p>
     </section>
 
     <section class="skill-section">
       <div class="skill-section-head">
-        <h2 class="skill-section-title">电气 & 仿真</h2>
-        <span class="skill-section-count">9 项</span>
+        <h2 class="skill-section-title" data-field="s1.title" data-label="分类标题" data-group="分类一">电气 & 硬件</h2>
+        <span class="skill-section-count" data-field="s1.count" data-label="数量标注" data-group="分类一">9 项</span>
       </div>
-      <div class="skill-detail-list">
-        <div class="skill-detail"><span class="sd-glyph">MAT</span><div><div class="sd-name">MATLAB</div><div class="sd-desc">数值计算与仿真脚本</div></div></div>
-        <div class="skill-detail"><span class="sd-glyph">SIM</span><div><div class="sd-name">Simulink</div><div class="sd-desc">电力电子系统建模</div></div></div>
-        <div class="skill-detail"><span class="sd-glyph">SP</span><div><div class="sd-name">SPWM 调制</div><div class="sd-desc">三相逆变器调制策略</div></div></div>
-        <div class="skill-detail"><span class="sd-glyph">3Φ</span><div><div class="sd-name">三相逆变器</div><div class="sd-desc">拓扑与波形分析</div></div></div>
-        <div class="skill-detail"><span class="sd-glyph">PE</span><div><div class="sd-name">电力电子</div><div class="sd-desc">变流电路基础</div></div></div>
-        <div class="skill-detail"><span class="sd-glyph">CA</span><div><div class="sd-name">电路分析</div><div class="sd-desc">稳态与暂态分析</div></div></div>
-        <div class="skill-detail"><span class="sd-glyph">AC</span><div><div class="sd-name">自动控制</div><div class="sd-desc">经典控制理论</div></div></div>
-        <div class="skill-detail"><span class="sd-glyph">PWR</span><div><div class="sd-name">变电站运维</div><div class="sd-desc">110kV 智能变电站实习</div></div></div>
-        <div class="skill-detail"><span class="sd-glyph">BOX</span><div><div class="sd-name">成套电气</div><div class="sd-desc">开关柜与箱变</div></div></div>
-      </div>
-    </section>
-
-    <section class="skill-section">
-      <div class="skill-section-head">
-        <h2 class="skill-section-title">编程 & 工具</h2>
-        <span class="skill-section-count">6 项</span>
-      </div>
-      <div class="skill-detail-list">
-        <div class="skill-detail"><span class="sd-glyph">Py</span><div><div class="sd-name">Python</div><div class="sd-desc">脚本与自动化</div></div></div>
-        <div class="skill-detail"><span class="sd-glyph">C</span><div><div class="sd-name">C / C++</div><div class="sd-desc">嵌入式基础</div></div></div>
-        <div class="skill-detail"><span class="sd-glyph">MCU</span><div><div class="sd-name">单片机</div><div class="sd-desc">外设与驱动</div></div></div>
-        <div class="skill-detail"><span class="sd-glyph">PCB</span><div><div class="sd-name">PCB 设计</div><div class="sd-desc">原理图与布局</div></div></div>
-        <div class="skill-detail"><span class="sd-glyph">DA</span><div><div class="sd-name">数据分析</div><div class="sd-desc">数据处理与可视化</div></div></div>
-        <div class="skill-detail"><span class="sd-glyph">OFF</span><div><div class="sd-name">Office</div><div class="sd-desc">文档与汇报</div></div></div>
+      <div class="skill-detail-list" data-list="skills-1" data-label="电气 & 硬件">
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">AD</span><div><div class="sd-name" data-field="name" data-label="名称">Altium Designer</div><div class="sd-desc" data-field="desc" data-label="说明">原理图与 PCB 设计</div></div></div>
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">A/D</span><div><div class="sd-name" data-field="name" data-label="名称">模拟与数字电路</div><div class="sd-desc" data-field="desc" data-label="说明">设计与调试</div></div></div>
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">51</span><div><div class="sd-name" data-field="name" data-label="名称">51 单片机</div><div class="sd-desc" data-field="desc" data-label="说明">C 语言开发</div></div></div>
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">STM</span><div><div class="sd-name" data-field="name" data-label="名称">STM32</div><div class="sd-desc" data-field="desc" data-label="说明">嵌入式开发</div></div></div>
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">MUL</span><div><div class="sd-name" data-field="name" data-label="名称">Multisim</div><div class="sd-desc" data-field="desc" data-label="说明">电路仿真与验证</div></div></div>
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">OSC</span><div><div class="sd-name" data-field="name" data-label="名称">示波器</div><div class="sd-desc" data-field="desc" data-label="说明">波形测量与分析</div></div></div>
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">GEN</span><div><div class="sd-name" data-field="name" data-label="名称">信号发生器</div><div class="sd-desc" data-field="desc" data-label="说明">信号调试</div></div></div>
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">MET</span><div><div class="sd-name" data-field="name" data-label="名称">万用表</div><div class="sd-desc" data-field="desc" data-label="说明">电参数测量</div></div></div>
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">PCB</span><div><div class="sd-name" data-field="name" data-label="名称">PCB 焊接</div><div class="sd-desc" data-field="desc" data-label="说明">手工焊接与排查</div></div></div>
       </div>
     </section>
 
     <section class="skill-section">
       <div class="skill-section-head">
-        <h2 class="skill-section-title">摄影 & 创作</h2>
-        <span class="skill-section-count">3 项</span>
+        <h2 class="skill-section-title" data-field="s2.title" data-label="分类标题" data-group="分类二">编程 & 工具</h2>
+        <span class="skill-section-count" data-field="s2.count" data-label="数量标注" data-group="分类二">5 项</span>
       </div>
-      <div class="skill-detail-list">
-        <div class="skill-detail"><span class="sd-glyph">PIX</span><div><div class="sd-name">摄影</div><div class="sd-desc">街头与风光</div></div></div>
-        <div class="skill-detail"><span class="sd-glyph">LR</span><div><div class="sd-name">Lightroom</div><div class="sd-desc">后期调色</div></div></div>
-        <div class="skill-detail"><span class="sd-glyph">DOC</span><div><div class="sd-name">写作 / Markdown</div><div class="sd-desc">技术笔记与博客</div></div></div>
+      <div class="skill-detail-list" data-list="skills-2" data-label="编程 & 工具">
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">C</span><div><div class="sd-name" data-field="name" data-label="名称">C 语言</div><div class="sd-desc" data-field="desc" data-label="说明">单片机与嵌入式编程</div></div></div>
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">Keil</span><div><div class="sd-name" data-field="name" data-label="名称">Keil C51</div><div class="sd-desc" data-field="desc" data-label="说明">51 开发环境</div></div></div>
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">WPS</span><div><div class="sd-name" data-field="name" data-label="名称">WPS Office</div><div class="sd-desc" data-field="desc" data-label="说明">文档与汇报</div></div></div>
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">L2</span><div><div class="sd-name" data-field="name" data-label="名称">计算机二级</div><div class="sd-desc" data-field="desc" data-label="说明">已通过</div></div></div>
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">EN</span><div><div class="sd-name" data-field="name" data-label="名称">CET-4</div><div class="sd-desc" data-field="desc" data-label="说明">英文文献阅读</div></div></div>
+      </div>
+    </section>
+
+    <section class="skill-section">
+      <div class="skill-section-head">
+        <h2 class="skill-section-title" data-field="s3.title" data-label="分类标题" data-group="分类三">摄影 & 创作</h2>
+        <span class="skill-section-count" data-field="s3.count" data-label="数量标注" data-group="分类三">6 项</span>
+      </div>
+      <div class="skill-detail-list" data-list="skills-3" data-label="摄影 & 创作">
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">PIX</span><div><div class="sd-name" data-field="name" data-label="名称">摄影</div><div class="sd-desc" data-field="desc" data-label="说明">街头与风光</div></div></div>
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">PS</span><div><div class="sd-name" data-field="name" data-label="名称">Photoshop</div><div class="sd-desc" data-field="desc" data-label="说明">修图与合成</div></div></div>
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">VID</span><div><div class="sd-name" data-field="name" data-label="名称">视频剪辑</div><div class="sd-desc" data-field="desc" data-label="说明">后期剪辑</div></div></div>
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">BL</span><div><div class="sd-name" data-field="name" data-label="名称">Blender</div><div class="sd-desc" data-field="desc" data-label="说明">三维建模</div></div></div>
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">C4D</span><div><div class="sd-name" data-field="name" data-label="名称">C4D</div><div class="sd-desc" data-field="desc" data-label="说明">三维建模</div></div></div>
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">CAL</span><div><div class="sd-name" data-field="name" data-label="名称">古体书法</div><div class="sd-desc" data-field="desc" data-label="说明">毛笔与硬笔</div></div></div>
+      </div>
+    </section>
+
+    <section class="skill-section">
+      <div class="skill-section-head">
+        <h2 class="skill-section-title" data-field="s4.title" data-label="分类标题" data-group="分类四">其他</h2>
+        <span class="skill-section-count" data-field="s4.count" data-label="数量标注" data-group="分类四">3 项</span>
+      </div>
+      <div class="skill-detail-list" data-list="skills-4" data-label="其他">
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">C1</span><div><div class="sd-name" data-field="name" data-label="名称">C1 驾照</div><div class="sd-desc" data-field="desc" data-label="说明">已取得</div></div></div>
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">UAV</span><div><div class="sd-name" data-field="name" data-label="名称">航模</div><div class="sd-desc" data-field="desc" data-label="说明">组装与操控</div></div></div>
+        <div class="skill-detail" data-item><span class="sd-glyph" data-field="glyph" data-label="图标字">BAD</span><div><div class="sd-name" data-field="name" data-label="名称">羽毛球</div><div class="sd-desc" data-field="desc" data-label="说明">裁判与赛事策划</div></div></div>
       </div>
     </section>
 
@@ -100,34 +114,34 @@
       <div class="mark">
         <div class="wm-name">WWS<span class="cn"> · 思垣</span></div>
         <div class="wm-sub">作品 · 技能 · 博客</div>
-        <div class="wm-ver">v1.0.0 · 持续更新</div>
+        <div class="wm-ver">v1.1.0 · 持续更新</div>
       </div>
       <div class="foot-cols">
         <div class="foot-col">
           <div class="foot-col-title">作品</div>
+          <a href="works.html">人体感应小夜灯</a>
+          <a href="works.html">航模与飞行</a>
           <a href="works.html">光影笔记</a>
-          <a href="works.html">电气工程</a>
-          <a href="works.html">小工具</a>
           <a href="works.html">写作</a>
         </div>
         <div class="foot-col">
           <div class="foot-col-title">技能</div>
-          <a href="skills.html">电力电子</a>
-          <a href="skills.html">仿真建模</a>
-          <a href="skills.html">编程</a>
+          <a href="skills.html">电路设计</a>
+          <a href="skills.html">单片机</a>
           <a href="skills.html">摄影后期</a>
+          <a href="skills.html">三维建模</a>
         </div>
         <div class="foot-col">
           <div class="foot-col-title">博客</div>
+          <a href="blog.html">项目复盘</a>
           <a href="blog.html">技术笔记</a>
-          <a href="blog.html">求职复盘</a>
           <a href="blog.html">生活随笔</a>
         </div>
         <div class="foot-col">
           <div class="foot-col-title">关于</div>
           <a href="about.html">简介</a>
-          <a href="about.html">GitHub</a>
-          <a href="about.html">邮箱</a>
+          <a href="https://github.com/look4you-yuan">GitHub</a>
+          <a href="works.html">作品集</a>
         </div>
         <div class="foot-col">
           <div class="foot-col-title">联系</div>
@@ -142,6 +156,15 @@
     </div>
   </div>
 </footer>
+
+<button class="editor-fab" type="button" title="打开内容控制台（Ctrl/Cmd+E）" aria-label="打开内容控制台">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+  </svg>
+</button>
+<div id="editor-drawer" class="editor-drawer" hidden></div>
+
+<script src="editor.js"></script>
 
 </body>
 </html>

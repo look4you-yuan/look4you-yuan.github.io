@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-page="works">
 
 <a class="skip-link" href="#main">跳到主要内容</a>
 
@@ -42,109 +42,109 @@
 
     <section class="page-hero">
       <nav class="crumb"><a href="index.html">首页</a><span class="sep">/</span>作品</nav>
-      <h1>作品</h1>
-      <p class="lede">做过的项目、写过的代码、拍过的照片，都收在这里。每一个都值得慢慢看。</p>
+      <h1 data-field="page.title" data-label="页面标题" data-group="页头">作品</h1>
+      <p class="lede" data-field="page.lede" data-label="页面导语" data-type="textarea" data-group="页头">从电路到实物，从天空到镜头。每一个都值得慢慢看。</p>
     </section>
 
-    <div class="feature-cards">
+    <div class="feature-cards" data-list="works" data-label="作品卡片">
 
-      <article class="fcard">
+      <article class="fcard" data-item>
         <figure class="fcard-media">
-          <div class="work-icon c-amber">
+          <div class="work-icon c-amber" data-field="icon" data-label="图标" data-type="icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5"/></svg>
+          </div>
+        </figure>
+        <div class="fcard-body">
+          <h3 class="fcard-name"><span data-field="name" data-label="名称">人体感应小夜灯</span><span class="tag" data-field="tag" data-label="标签">电路 · 硬件</span></h3>
+          <ul class="fcard-points" data-field="points" data-label="要点（每行一条）" data-type="lines">
+            <li>以 LM324 运放与 555 定时器为核心器件</li>
+            <li>构建信号检测、放大、逻辑控制与 LED 驱动四个模块</li>
+            <li>Multisim 仿真验证各模块功能，优化元件参数</li>
+            <li>完成 PCB 版图设计与焊接调试，实现 10 秒级可调延时</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="fcard" data-item>
+        <figure class="fcard-media">
+          <div class="work-icon c-navy" data-field="icon" data-label="图标" data-type="icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+          </div>
+        </figure>
+        <div class="fcard-body">
+          <h3 class="fcard-name"><span data-field="name" data-label="名称">航模与飞行</span><span class="tag" data-field="tag" data-label="标签">航模 · 操控</span></h3>
+          <ul class="fcard-points" data-field="points" data-label="要点（每行一条）" data-type="lines">
+            <li>穿越机、固定翼等航模成品组装与调试</li>
+            <li>模拟飞行、地面站调试，从虚拟仿真到实体搭建</li>
+            <li>参与校级航模飞行比赛策划</li>
+            <li>首创「竞速穿越 + 载荷运输」双赛道赛制</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="fcard" data-item>
+        <figure class="fcard-media">
+          <div class="work-icon c-slate" data-field="icon" data-label="图标" data-type="icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>
+          </div>
+        </figure>
+        <div class="fcard-body">
+          <h3 class="fcard-name"><span data-field="name" data-label="名称">PCB 设计与打样</span><span class="tag" data-field="tag" data-label="标签">Altium Designer</span></h3>
+          <ul class="fcard-points" data-field="points" data-label="要点（每行一条）" data-type="lines">
+            <li>用 Altium Designer 完成原理图与 PCB 版图</li>
+            <li>从器件选型、封装到走线布局的完整流程</li>
+            <li>导出 Gerber 文件并完成第一次打样</li>
+            <li>焊接调试，排查虚焊与信号干扰问题</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="fcard" data-item>
+        <figure class="fcard-media">
+          <div class="work-icon c-sage" data-field="icon" data-label="图标" data-type="icon">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
           </div>
         </figure>
         <div class="fcard-body">
-          <h3 class="fcard-name">光影笔记<span class="tag">摄影</span></h3>
-          <ul class="fcard-points">
-            <li>街头与风光摄影，偏爱晨昏的光线</li>
+          <h3 class="fcard-name"><span data-field="name" data-label="名称">光影笔记</span><span class="tag" data-field="tag" data-label="标签">摄影</span></h3>
+          <ul class="fcard-points" data-field="points" data-label="要点（每行一条）" data-type="lines">
+            <li>街头与风光，偏爱晨昏时的光线</li>
             <li>人像与活动跟拍，捕捉真实瞬间</li>
-            <li>Lightroom 后期调色与批量输出</li>
+            <li>后期调色与批量输出</li>
             <li>精选成册，可在线浏览</li>
           </ul>
         </div>
       </article>
 
-      <article class="fcard">
+      <article class="fcard" data-item>
         <figure class="fcard-media">
-          <div class="work-icon c-navy">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="15" rx="2"/><path d="M2 11h4l2-4 3 8 2.5-6 1.5 2h7"/></svg>
-          </div>
-        </figure>
-        <div class="fcard-body">
-          <h3 class="fcard-name">电气工程<span class="tag">仿真 · 设计</span></h3>
-          <ul class="fcard-points">
-            <li>三相逆变器 SPWM 调制与仿真</li>
-            <li>MATLAB / Simulink 建模与波形分析</li>
-            <li>电路分析与调试，实习沉淀</li>
-            <li>变电站与成套电气实践</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="fcard">
-        <figure class="fcard-media">
-          <div class="work-icon c-sage">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
-          </div>
-        </figure>
-        <div class="fcard-body">
-          <h3 class="fcard-name">小工具<span class="tag">脚本 · 自动化</span></h3>
-          <ul class="fcard-points">
-            <li>Python 小脚本，处理重复劳动</li>
-            <li>数据清洗与批量处理</li>
-            <li>求职、选岗等效率工具</li>
-            <li>开源，欢迎交流</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="fcard">
-        <figure class="fcard-media">
-          <div class="work-icon c-terracotta">
+          <div class="work-icon c-terracotta" data-field="icon" data-label="图标" data-type="icon">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
           </div>
         </figure>
         <div class="fcard-body">
-          <h3 class="fcard-name">写作<span class="tag">笔记 · 博客</span></h3>
-          <ul class="fcard-points">
-            <li>技术博客与学习笔记</li>
-            <li>求职复盘与笔试经验</li>
-            <li>读书与生活随笔</li>
+          <h3 class="fcard-name"><span data-field="name" data-label="名称">写作</span><span class="tag" data-field="tag" data-label="标签">笔记 · 博客</span></h3>
+          <ul class="fcard-points" data-field="points" data-label="要点（每行一条）" data-type="lines">
+            <li>技术笔记与项目复盘</li>
+            <li>学习记录与踩坑总结</li>
+            <li>生活随笔与读书笔记</li>
             <li>定期更新</li>
           </ul>
         </div>
       </article>
 
-      <article class="fcard">
+      <article class="fcard" data-item>
         <figure class="fcard-media">
-          <div class="work-icon c-slate">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-          </div>
-        </figure>
-        <div class="fcard-body">
-          <h3 class="fcard-name">求职档案<span class="tag">求职 · 整理</span></h3>
-          <ul class="fcard-points">
-            <li>投递记录与笔试复盘，持续更新</li>
-            <li>国企与制造业备考资料整理</li>
-            <li>岗位对比与优先级排序</li>
-            <li>面试题库沉淀</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="fcard">
-        <figure class="fcard-media">
-          <div class="work-icon c-rose">
+          <div class="work-icon c-rose" data-field="icon" data-label="图标" data-type="icon">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </div>
         </figure>
         <div class="fcard-body">
-          <h3 class="fcard-name">个人主页<span class="tag">网站 · 设计</span></h3>
-          <ul class="fcard-points">
+          <h3 class="fcard-name"><span data-field="name" data-label="名称">个人主页</span><span class="tag" data-field="tag" data-label="标签">网站 · 设计</span></h3>
+          <ul class="fcard-points" data-field="points" data-label="要点（每行一条）" data-type="lines">
             <li>你现在看到的这个网站</li>
             <li>暖色编辑部风格，衬线大标题</li>
-            <li>自带可视化内容控制台</li>
+            <li>多页面结构，自带本地内容控制台</li>
             <li>持续打磨细节</li>
           </ul>
         </div>
@@ -160,34 +160,34 @@
       <div class="mark">
         <div class="wm-name">WWS<span class="cn"> · 思垣</span></div>
         <div class="wm-sub">作品 · 技能 · 博客</div>
-        <div class="wm-ver">v1.0.0 · 持续更新</div>
+        <div class="wm-ver">v1.1.0 · 持续更新</div>
       </div>
       <div class="foot-cols">
         <div class="foot-col">
           <div class="foot-col-title">作品</div>
+          <a href="works.html">人体感应小夜灯</a>
+          <a href="works.html">航模与飞行</a>
           <a href="works.html">光影笔记</a>
-          <a href="works.html">电气工程</a>
-          <a href="works.html">小工具</a>
           <a href="works.html">写作</a>
         </div>
         <div class="foot-col">
           <div class="foot-col-title">技能</div>
-          <a href="skills.html">电力电子</a>
-          <a href="skills.html">仿真建模</a>
-          <a href="skills.html">编程</a>
+          <a href="skills.html">电路设计</a>
+          <a href="skills.html">单片机</a>
           <a href="skills.html">摄影后期</a>
+          <a href="skills.html">三维建模</a>
         </div>
         <div class="foot-col">
           <div class="foot-col-title">博客</div>
+          <a href="blog.html">项目复盘</a>
           <a href="blog.html">技术笔记</a>
-          <a href="blog.html">求职复盘</a>
           <a href="blog.html">生活随笔</a>
         </div>
         <div class="foot-col">
           <div class="foot-col-title">关于</div>
           <a href="about.html">简介</a>
-          <a href="about.html">GitHub</a>
-          <a href="about.html">邮箱</a>
+          <a href="https://github.com/look4you-yuan">GitHub</a>
+          <a href="works.html">作品集</a>
         </div>
         <div class="foot-col">
           <div class="foot-col-title">联系</div>
@@ -202,6 +202,15 @@
     </div>
   </div>
 </footer>
+
+<button class="editor-fab" type="button" title="打开内容控制台（Ctrl/Cmd+E）" aria-label="打开内容控制台">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+  </svg>
+</button>
+<div id="editor-drawer" class="editor-drawer" hidden></div>
+
+<script src="editor.js"></script>
 
 </body>
 </html>
