@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>技能包 Toolchain · 作品 · WWS 思垣</title>
+<meta name="description" content="四套自用技能包：电气课程设计、Simulink AI 工具箱、提示词合集、微信本地导出。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="work-skills">
+
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<div class="page">
+
+  <header class="nav-wrap">
+    <nav class="site-nav" aria-label="主导航">
+      <a class="nav-brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="13" fill="none" stroke="#144a74" stroke-width="2.4"/>
+          <ellipse cx="16" cy="16" rx="20" ry="7" fill="none" stroke="#2d618c" stroke-width="1.4" opacity="0.55" transform="rotate(-18 16 16)"/>
+          <circle cx="16" cy="16" r="4.5" fill="#144a74"/>
+        </svg>
+        <b>WWS<span class="cn">思垣</span></b>
+      </a>
+      <div class="nav-links">
+        <a href="works.html" class="active" aria-current="page">作品</a>
+        <a href="skills.html">技能</a>
+        <a href="blog.html">博客</a>
+        <a href="about.html">关于</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn-primary btn-sm" href="about.html#contact">联系我</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <section class="page-hero">
+      <nav class="crumb"><a href="index.html">首页</a><span class="sep">/</span><a href="works.html">作品</a><span class="sep">/</span>技能包 Toolchain</nav>
+      <h1 data-field="sk.title" data-label="标题" data-group="页头">技能包 Toolchain</h1>
+      <p class="lede" data-field="sk.lede" data-label="导语" data-type="textarea" data-group="页头">把一次性的活，固化成能重复跑的流程。四套包，装完就能用。</p>
+      <dl class="work-meta">
+        <div><dt>类型</dt><dd data-field="sk.m1" data-label="类型" data-group="页头">AI 技能包 / 工具链</dd></div>
+        <div><dt>时间</dt><dd data-field="sk.m2" data-label="时间" data-group="页头">2026 年 10 月</dd></div>
+        <div><dt>角色</dt><dd data-field="sk.m3" data-label="角色" data-group="页头">独立整理：流程梳理 / 脚本 / 文档</dd></div>
+        <div><dt>形态</dt><dd data-field="sk.m4" data-label="形态" data-group="页头">4 个 zip，含脚本与说明</dd></div>
+      </dl>
+    </section>
+
+    <figure class="work-cover">
+      <img src="assets/works/skills/cover.svg" alt="技能包封面" loading="lazy">
+      <figcaption>四套包各管一件事：课程设计、Simulink、写作流程、本地导出</figcaption>
+    </figure>
+
+    <div class="stat-row">
+      <div class="stat"><b>4<em>套</em></b><span>可复用技能包</span></div>
+      <div class="stat"><b>10<em>个</em></b><span>配套脚本（Python / PowerShell）</span></div>
+      <div class="stat"><b>1<em>个</em></b><span>MCP 服务，让 AI 直接操作 Simulink</span></div>
+      <div class="stat"><b>全本地</b><span>不上传、不联网、不需要账号</span></div>
+    </div>
+
+    <section class="article">
+      <div class="article-body">
+
+        <h2 data-field="sk.h1" data-label="小标题1" data-group="正文">为什么要把活整理成技能包</h2>
+        <p data-field="sk.p1" data-label="段落1" data-type="textarea" data-group="正文">做过一遍的事，第二次做还会再踩一遍同样的坑，这说明第一次其实没做完。技能包解决的就是这件事：把「怎么做」写下来，连同踩过的坑、检查清单、能跑的脚本一起打包。下次换个题目，流程照跑，只需要换内容。</p>
+        <p data-field="sk.p2" data-label="段落2" data-type="textarea" data-group="正文">判断一个包做得好不好，有个简单的标准：<b>换台电脑、隔一个月，还能不能照着它把活干完。</b>所以每个包都有安装说明和自检脚本，缺东西会直接告诉你缺哪一个。</p>
+
+        <h2 data-field="sk.h2" data-label="小标题2" data-group="正文">01 · 电气课程设计</h2>
+        <p data-field="sk.p3" data-label="段落3" data-type="textarea" data-group="正文">从任务书到定稿报告的完整流程。核心不是模板，是那三份参考：常见坑（接地、门极顺序、数据类型、采样混叠这类）、Simulink Specialized Power Systems 的用法、以及学校报告格式的规范。</p>
+        <table class="spec">
+          <caption>包内结构</caption>
+          <tbody>
+            <tr><th>SKILL.md</th><td>流程主干：选型 → 公式 → 参数 → 建模 → 仿真 → 出图 → 报告</td></tr>
+            <tr><th>references/</th><td>pitfalls.md（踩过的坑）、simulink-spt.md（电力系统模块库）、report-format.md（格式规范）</td></tr>
+            <tr><th>scripts/</th><td>omml.py 生成 Word 原生公式、inspect_docx.py 自查字体字号行距、read_xls.py 读实验数据</td></tr>
+          </tbody>
+        </table>
+
+        <h2 data-field="sk.h3" data-label="小标题3" data-group="正文">02 · Simulink AI 工具箱</h2>
+        <p data-field="sk.p4" data-label="段落4" data-type="textarea" data-group="正文">一个 MCP 服务加一个 MATLAB 工具箱，让 AI 能直接操作 Simulink：建模块、连信号、探端口极性、设参数、跑仿真、导截图。省下的是翻文档和试参数的时间；判断（选哪个拓扑、参数怎么定）仍然得自己做。</p>
+        <p data-field="sk.p5" data-label="段落5" data-type="textarea" data-group="正文">里面配了一份《配置与排错》文档——这类工具最容易死在环境上：MATLAB 版本、工具箱路径、端口占用、权限。文档把能想到的失败情形都列了一遍，出问题先翻它。</p>
+
+        <h2 data-field="sk.h4" data-label="小标题4" data-group="正文">03 · 提示词与写作流程</h2>
+        <p data-field="sk.p6" data-label="段落6" data-type="textarea" data-group="正文">把反复在用的提示词归档成目录：调研、写作、改写、评审各有各的套路。带 PowerShell 安装脚本和自检脚本，装完跑一遍 verify 就知道哪些没落地。</p>
+        <table class="spec">
+          <caption>包里有什么</caption>
+          <tbody>
+            <tr><th>prompts/</th><td>按用途分类的提示词目录，附示例图与效果对照</td></tr>
+            <tr><th>install.ps1</th><td>一键安装，把目录铺到对应位置</td></tr>
+            <tr><th>verify.ps1</th><td>自检：文件齐不齐、路径对不对</td></tr>
+            <tr><th>CHANGELOG / ATTRIBUTION</th><td>版本记录与来源说明，改过什么、借了谁的都写清楚</td></tr>
+          </tbody>
+        </table>
+
+        <h2 data-field="sk.h5" data-label="小标题5" data-group="正文">04 · 微信本地导出</h2>
+        <p data-field="sk.p6b" data-label="段落7" data-type="textarea" data-group="正文">把自己本机上已登录的聊天记录，导出成能翻阅的本地文件。四个脚本分工：探测环境、抓取、导出、按会话索引。全程本地处理，不连任何服务器，也不碰别人的记录。</p>
+        <p data-field="sk.p7" data-label="段落8" data-type="textarea" data-group="正文">做这个的初衷很实际：换了手机、重装系统之后，想回头找某段对话，发现只剩一个加载不出来的列表。与其把记录托付给某个第三方工具，不如自己把文件拿到手。</p>
+
+        <h2 data-field="sk.h6" data-label="小标题6" data-group="正文">共同的设计</h2>
+        <p data-field="sk.p8" data-label="段落9" data-type="textarea" data-group="正文">四套包看起来管的事不相关，但结构是一样的：<b>一份主干说明 + 若干参考文档 + 能直接跑的脚本 + 一个自检</b>。主干说明写流程，参考文档写「为什么这么做」和「踩过什么坑」，脚本负责重复劳动，自检负责确认没漏东西。</p>
+        <div class="callout" data-field="sk.q1" data-label="提示块" data-type="textarea" data-group="正文">这也是我理解的「工具」：不是替你做决定，而是让你把精力放在判断上，剩下的交给流程。写脚本花的时间，通常在第三次用的时候就赚回来了。</div>
+      </div>
+    </section>
+
+    <nav class="work-nav" aria-label="作品导航">
+      <a href="work-inverter.html"><span class="dir">上一个</span>← 三相 SPWM 逆变器</a>
+      <a href="works.html"><span class="dir">返回</span>全部作品</a>
+    </nav>
+
+  </main>
+</div>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="mark">
+        <div class="wm-name">WWS<span class="cn"> · 思垣</span></div>
+        <div class="wm-sub">作品 · 技能 · 博客</div>
+        <div class="wm-ver">v1.2.0 · 持续更新</div>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <div class="foot-col-title">作品</div>
+          <a href="work-comet.html">彗星 Comet</a>
+          <a href="work-sentinel.html">C 盘哨兵</a>
+          <a href="work-inverter.html">三相 SPWM 逆变器</a>
+          <a href="work-skills.html">技能包 Toolchain</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">技能</div>
+          <a href="skills.html">电路设计</a>
+          <a href="skills.html">单片机</a>
+          <a href="skills.html">摄影后期</a>
+          <a href="skills.html">三维建模</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">博客</div>
+          <a href="blog.html">项目复盘</a>
+          <a href="blog.html">技术笔记</a>
+          <a href="blog.html">生活随笔</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">关于</div>
+          <a href="about.html">简介</a>
+          <a href="https://github.com/look4you-yuan">GitHub</a>
+          <a href="works.html">作品集</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">联系</div>
+          <a href="about.html#contact">交流</a>
+          <a href="about.html#contact">合作</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="ethos">安静地做，认真地记录。</span>
+      <span>© 2026 WWS · 思垣</span>
+    </div>
+  </div>
+</footer>
+
+<button class="editor-fab" type="button" title="打开内容控制台（Ctrl/Cmd+E）" aria-label="打开内容控制台">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+  </svg>
+</button>
+<div id="editor-drawer" class="editor-drawer" hidden></div>
+
+<script src="editor.js"></script>
+
+</body>
+</html>

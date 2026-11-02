@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 792" width="1200" height="792" role="img" aria-label="技能包封面">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d2f4b"/>
+      <stop offset="0.55" stop-color="#144a74"/>
+      <stop offset="1" stop-color="#1c5b8c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.84" cy="0.2" r="0.55">
+      <stop offset="0" stop-color="#7fb0d8" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#7fb0d8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="792" fill="url(#bg)"/>
+  <rect width="1200" height="792" fill="url(#grid)"/>
+  <rect width="1200" height="792" fill="url(#glow)"/>
+
+  <g fill="none" stroke="#9dc4e2" stroke-width="1">
+    <ellipse cx="955" cy="452" rx="238" ry="90" transform="rotate(-16 955 452)" stroke-opacity="0.3"/>
+    <ellipse cx="955" cy="452" rx="170" ry="62" transform="rotate(-16 955 452)" stroke-opacity="0.18"/>
+  </g>
+  <circle cx="955" cy="452" r="64" fill="#eaf2f9" fill-opacity="0.09" stroke="#c9dcec" stroke-opacity="0.4"/>
+  <circle cx="934" cy="430" r="19" fill="#cfe3f1" fill-opacity="0.16"/>
+
+  <text x="80" y="118" fill="#e8f1f8" fill-opacity="0.6" font-family="'JetBrains Mono','Consolas',monospace" font-size="20" letter-spacing="6">WWS · TOOLCHAIN</text>
+
+  <g fill="#e8f1f8" font-family="'JetBrains Mono','Consolas',monospace" font-size="124" letter-spacing="10">
+    <text x="80" y="300">SKILL</text>
+    <text x="80" y="428">PACKS</text>
+  </g>
+
+  <text x="80" y="500" fill="#dbe8f2" fill-opacity="0.84" font-family="'Noto Sans SC','Microsoft YaHei',sans-serif" font-size="26">把一次性的活，固化成能重复跑的流程</text>
+
+  <line x1="80" y1="596" x2="1040" y2="596" stroke="#ffffff" stroke-opacity="0.17"/>
+
+  <g fill="#ffffff" fill-opacity="0.46" font-family="'JetBrains Mono','Consolas',monospace" font-size="16" letter-spacing="3">
+    <text x="80" y="648">01 电气课程设计</text>
+    <text x="352" y="648">02 SIMULINK</text>
+    <text x="580" y="648">03 PROMPTS</text>
+    <text x="772" y="648">04 微信导出</text>
+  </g>
+
+  <text x="1044" y="676" fill="#eaf2f9" fill-opacity="0.9" font-family="'JetBrains Mono','Consolas',monospace" font-size="72">04</text>
+  <text x="1050" y="708" fill="#eaf2f9" fill-opacity="0.45" font-family="'JetBrains Mono','Consolas',monospace" font-size="15" letter-spacing="4">PACKS</text>
+</svg>

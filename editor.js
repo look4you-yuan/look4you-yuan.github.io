@@ -24,7 +24,9 @@
     return;
   }
 
-  var LS_KEY = 'wws_site_v3';
+  /* 按页面隔离存储：每个页面各存各的，互不覆盖 */
+  var PAGE_ID = (location.pathname.split('/').pop() || 'index.html').replace(/\.html$/i, '') || 'index';
+  var LS_KEY = 'wws_site_v4:' + PAGE_ID;
 
   /* ---------- 2. 图标库（data-type="icon" 用） ---------- */
   var ICONS = {
@@ -123,6 +125,10 @@
         obj[k] = $all('li', f).map(function (li) { return li.textContent.trim(); });
       } else if (t === 'icon') {
         obj[k] = f.getAttribute('data-icon') || colorIcon(f);
+      } else if (t === 'img') {
+        obj[k] = f.getAttribute('src') || '';
+      } else if (t === 'link') {
+        obj[k] = f.getAttribute('href') || '';
       } else {
         obj[k] = f.textContent.trim();
       }
@@ -138,6 +144,10 @@
         f.innerHTML = (v || []).map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('');
       } else if (t === 'icon') {
         setIcon(f, v || 'lightbulb');
+      } else if (t === 'img') {
+        if (v) f.setAttribute('src', v);
+      } else if (t === 'link') {
+        if (v) f.setAttribute('href', v);
       } else {
         f.textContent = v == null ? '' : v;
       }
@@ -160,7 +170,7 @@
   function applyFields() {
     Object.keys(state.fields).forEach(function (k) {
       $all('[data-field="' + k + '"]').forEach(function (el) {
-        if (ftype(el) === 'icon') return;
+        if (ftype(el) === 'icon' || ftype(el) === 'img' || ftype(el) === 'link') return;
         el.textContent = state.fields[k];
       });
     });
@@ -345,7 +355,7 @@
       if (scope === 'field') {
         state.fields[key] = val;
         $all('[data-field="' + key + '"]').forEach(function (el) {
-          if (ftype(el) === 'icon') return;
+          if (ftype(el) === 'icon' || ftype(el) === 'img' || ftype(el) === 'link') return;
           el.textContent = val;
         });
         save();

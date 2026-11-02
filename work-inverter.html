@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>三相 SPWM 逆变器 · 作品 · WWS 思垣</title>
+<meta name="description" content="三相 SPWM 逆变器设计与控制仿真：380 V 直流进、三相 220 V / 50 Hz 出，1 kW 级，独立完成全部设计与仿真。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="work-inverter">
+
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<div class="page">
+
+  <header class="nav-wrap">
+    <nav class="site-nav" aria-label="主导航">
+      <a class="nav-brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="13" fill="none" stroke="#144a74" stroke-width="2.4"/>
+          <ellipse cx="16" cy="16" rx="20" ry="7" fill="none" stroke="#2d618c" stroke-width="1.4" opacity="0.55" transform="rotate(-18 16 16)"/>
+          <circle cx="16" cy="16" r="4.5" fill="#144a74"/>
+        </svg>
+        <b>WWS<span class="cn">思垣</span></b>
+      </a>
+      <div class="nav-links">
+        <a href="works.html" class="active" aria-current="page">作品</a>
+        <a href="skills.html">技能</a>
+        <a href="blog.html">博客</a>
+        <a href="about.html">关于</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn-primary btn-sm" href="about.html#contact">联系我</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <section class="page-hero">
+      <nav class="crumb"><a href="index.html">首页</a><span class="sep">/</span><a href="works.html">作品</a><span class="sep">/</span>三相 SPWM 逆变器</nav>
+      <h1 data-field="inv.title" data-label="标题" data-group="页头">三相 SPWM 逆变器</h1>
+      <p class="lede" data-field="inv.lede" data-label="导语" data-type="textarea" data-group="页头">380 V 直流进，三相 220 V / 50 Hz 出，1 kW 级。从任务书到 30 页报告，数字都来自最终版，没有为了好看做过修饰。</p>
+      <dl class="work-meta">
+        <div><dt>类型</dt><dd data-field="inv.m1" data-label="类型" data-group="页头">专业综合设计（课程）</dd></div>
+        <div><dt>时间</dt><dd data-field="inv.m2" data-label="时间" data-group="页头">2026 年 9—10 月</dd></div>
+        <div><dt>角色</dt><dd data-field="inv.m3" data-label="角色" data-group="页头">独立完成：选型 / 计算 / 建模 / 仿真 / 报告</dd></div>
+        <div><dt>平台</dt><dd data-field="inv.m4" data-label="平台" data-group="页头">MATLAB R2025a · Simulink · Simscape Electrical</dd></div>
+      </dl>
+    </section>
+
+    <figure class="work-cover">
+      <img src="assets/works/inverter/steady-waveform.jpg" alt="稳态三相电压与电流波形" loading="lazy">
+      <figcaption>稳态三相电压与电流（0.08–0.12 s，后两个基波周期）—— 线电压 220.53 V，相电流 3.035 A</figcaption>
+    </figure>
+
+    <div class="stat-row">
+      <div class="stat"><b>220.53<em>V</em></b><span>输出线电压（要求 220 V）</span></div>
+      <div class="stat"><b>3.07<em>%</em></b><span>线电压 THD（GB/T 14549 限值 5%）</span></div>
+      <div class="stat"><b>97.84<em>%</em></b><span>效率（要求 > 80%）</span></div>
+      <div class="stat"><b>1105<em>W</em></b><span>负载有功功率（要求 ≥ 1 kW）</span></div>
+    </div>
+
+    <section class="article">
+      <div class="article-body">
+
+        <h2 data-field="inv.h1" data-label="小标题1" data-group="正文">任务书给的是几个数字</h2>
+        <p data-field="inv.p1" data-label="段落1" data-type="textarea" data-group="正文">后面跟着两条容易被跳过的附加要求：报告里要体现开关管的导通顺序；要推导输入输出电压的转换关系，而且推导必须和仿真里用的 SPWM 一致。第一条决定了画个波形图糊弄不过去，得真把六路驱动跑出来；第二条决定了参数计算的起点必须是公式，而不是试凑。</p>
+
+        <table class="spec">
+          <caption>设计要求</caption>
+          <tbody>
+            <tr><th>直流输入</th><td>380 V 恒定</td></tr>
+            <tr><th>输出线电压</th><td>220 V 有效值，三相对称</td></tr>
+            <tr><th>输出频率</th><td>50 Hz（±0.5 Hz）</td></tr>
+            <tr><th>负载功率</th><td>≥ 1 kW，三相星形 RL</td></tr>
+            <tr><th>开关频率</th><td>10 kHz，同步调制</td></tr>
+            <tr><th>效率</th><td>&gt; 80%</td></tr>
+          </tbody>
+        </table>
+
+        <p data-field="inv.p2" data-label="段落2" data-type="textarea" data-group="正文">这里有两个坑要先说清楚：<b>220 V 指的是线电压，不是相电压</b>（相电压 127 V）；<b>1 kW 指的是负载上的有功功率</b>，不是视在功率。算错任何一个，后面选器件和选负载都会跟着错。</p>
+
+        <h2 data-field="inv.h2" data-label="小标题2" data-group="正文">选型：四个拓扑排下来只剩一个</h2>
+        <p data-field="inv.p3" data-label="段落3" data-type="textarea" data-group="正文">能把直流变成三相交流的电路，常见的有推挽、半桥、单相全桥组合和三相桥式。推挽简单、有变压器隔离，但开关管要承受两倍母线电压；半桥器件少，可直流侧要分裂电容，容量上不去；单相全桥容量够了，却只能输出一相。剩下三相桥式：三相对称、谐波小、容量大，代价是 6 只开关管和 6 路驱动。</p>
+        <p data-field="inv.p4" data-label="段落4" data-type="textarea" data-group="正文">器件按母线电压乘 1.5–2 倍的安全系数选：耐压不低于 600 V；相电流有效值 3.03 A、峰值 4.29 A，考虑过载和电容电流取 30 A。最后定 600 V / 30 A 的 IGBT 模块，反并联快恢复二极管做感性负载的续流通道。晶闸管和 GTO 要换流电路、开关频率上不去；MOSFET 在这个电压等级耐压和容量都不够——IGBT 是唯一合理的选择。</p>
+
+        <h2 data-field="inv.h3" data-label="小标题3" data-group="正文">先推公式，再定参数</h2>
+        <p data-field="inv.p5" data-label="段落5" data-type="textarea" data-group="正文">这是整份设计里最值钱的一段。SPWM 平均模型下，A 相桥臂中点对中性点的基波电压是</p>
+
+        <p class="formula">u<sub>AN</sub> = ( m · V<sub>dc</sub> / 2 ) · sin( ωt )</p>
+
+        <p data-field="inv.p6" data-label="段落6" data-type="textarea" data-group="正文">三相线电压有效值随之得到</p>
+
+        <p class="formula">U<sub>LL</sub> = ( √3 / √2 ) · ( m · V<sub>dc</sub> / 2 ) = 0.6124 · m · V<sub>dc</sub></p>
+
+        <p data-field="inv.p7" data-label="段落7" data-type="textarea" data-group="正文">0.6124 就是 SPWM 线性调制区的最大直流电压利用率。m 取 1 时线电压上限 232.7 V；要输出 220 V，理论调制比是 0.945。</p>
+        <p data-field="inv.p8" data-label="段落8" data-type="textarea" data-group="正文">到这儿公式是干净的，问题出在「理论」两个字上。真实电路里有三处压降：死区引起的平均电压损失约 1.9 V（t<sub>d</sub> = 0.5 μs、f<sub>s</sub> = 10 kHz 代入算得）、IGBT 通态压降 1–2 V、滤波电感在额定电流下的压降 3.7 V，加起来接近 9 V。</p>
+
+        <div class="callout" data-field="inv.q1" data-label="提示块" data-type="textarea" data-group="正文">我第一次就是按 m = 0.945 建的模型，仿真结果只有约 212 V——公式没错，是模型里那些「理想情况下不存在」的压降把电压吃掉了。把 m 提到 0.99 重跑，输出 <b>220.53 V</b>，与 220 V 差 0.24%。</div>
+
+        <table class="spec">
+          <caption>关键参数与来历</caption>
+          <tbody>
+            <tr><th>直流母线</th><td>380 V（任务书）</td></tr>
+            <tr><th>母线电容</th><td>2200 μF（按纹波与保持时间估算）</td></tr>
+            <tr><th>开关频率</th><td>10 kHz（高于听阈，滤波器体积可接受）</td></tr>
+            <tr><th>调制比</th><td>0.99（理论 0.945 + 压降补偿）</td></tr>
+            <tr><th>死区</th><td>0.5 μs（开关周期的 0.5%）</td></tr>
+            <tr><th>滤波电感</th><td>4 mH（纹波电流 1.19 A，约为峰值的 28%）</td></tr>
+            <tr><th>滤波电容</th><td>10 μF（截止频率 796 Hz，约为开关频率的 1/12.6）</td></tr>
+            <tr><th>负载</th><td>40 Ω + 40 mH（1 kW 满载工况）</td></tr>
+          </tbody>
+        </table>
+
+        <p data-field="inv.p9" data-label="段落9" data-type="textarea" data-group="正文">滤波器这段值得单独说一句。截止频率 796 Hz 看着离 50 Hz 很远，但它同时低于 17 次谐波（850 Hz）——滤波器对 17 次谐波不但不衰减，反而略有放大（算下来 1.08 倍）。最后仿真的 THD 3.07% 里，17 次谐波确实是最主要的成分之一。<b>无源滤波器不是「越硬越好」，截止频率选在哪里，就决定了哪几次谐波会被放大</b>——这点在算参数时没人提醒，是看频谱图时才意识到的。</p>
+      </div>
+    </section>
+
+    <div class="gallery">
+      <figure class="span-2"><img src="assets/works/inverter/system-structure.jpg" alt="系统结构" loading="lazy"><figcaption>图 1　系统结构：直流电源 → 三相全桥 → LC 滤波 → 三相星形负载，控制器给出六路驱动</figcaption></figure>
+      <figure><img src="assets/works/inverter/main-circuit.jpg" alt="主电路结构" loading="lazy"><figcaption>图 2　主电路：六只 IGBT 与反并联二极管、LC 滤波、星形 RL 负载</figcaption></figure>
+      <figure><img src="assets/works/inverter/simulink-model.jpg" alt="Simulink 顶层模型" loading="lazy"><figcaption>图 3　顶层模型：SPWM 控制器、主电路、四个数据记录模块</figcaption></figure>
+      <figure class="span-2"><img src="assets/works/inverter/spwm-principle.jpg" alt="SPWM 原理" loading="lazy"><figcaption>图 4　调制波、载波、上管驱动与 A 相桥臂电压（局部放大）</figcaption></figure>
+      <figure><img src="assets/works/inverter/loss-breakdown.jpg" alt="损耗分解" loading="lazy"><figcaption>图 5　损耗分解：通态损耗比开关损耗大得多</figcaption></figure>
+      <figure><img src="assets/works/inverter/harmonic-spectrum.jpg" alt="谐波频谱" loading="lazy"><figcaption>图 6　线电压频谱：5、7 次被压到 1% 以下，剩 17 次最大</figcaption></figure>
+      <figure><img src="assets/works/inverter/modulation-sweep.jpg" alt="调制比扫描" loading="lazy"><figcaption>图 7　调制比从 0.80 扫到 1.00 的线电压与 THD</figcaption></figure>
+      <figure><img src="assets/works/inverter/steady-waveform.jpg" alt="稳态波形" loading="lazy"><figcaption>图 8　稳态三相电压与电流</figcaption></figure>
+    </div>
+
+    <section class="article">
+      <div class="article-body">
+
+        <h2 data-field="inv.h4" data-label="小标题4" data-group="正文">建模：四个坑，每个都卡了大半天</h2>
+        <p data-field="inv.p10" data-label="段落10" data-type="textarea" data-group="正文"><b>坑一：中性点接地，输出直接偏了 178 V。</b>图省事把负载中性点和滤波电容中性点都接了地，跑出来三相电压整体上抬 178 V，还带 5 A 左右的直流分量。三相三线制里中性点对地是浮动的，一接地等于给零序电流开了通路。改成三线制、只把直流负端接地，波形立刻正常。</p>
+        <p data-field="inv.p11" data-label="段落11" data-type="textarea" data-group="正文"><b>坑二：六路门极的顺序。</b>Simscape 的 Universal Bridge 只吃一个 6 维向量，内部顺序是 [A上, A下, B上, B下, C上, C下]，而控制器里拼向量的顺序一开始是另一套。顺序错了不报错，只会让桥臂「该通的不通、该断的不断」，波形看着像那么回事，其实是乱的。解决办法是先用脚本把每个端口的极性探出来再连线，而不是照着记忆接。</p>
+        <p data-field="inv.p12" data-label="段落12" data-type="textarea" data-group="正文"><b>坑三：死区逻辑的数据类型。</b>「先关断、后开通」的死区用 Transport Delay 加逻辑与实现，思路没问题，但延时模块输出 double、与门要 boolean，直接接会报类型不匹配。加一级 DataTypeConversion 就好——不涉及原理，纯粹是工具脾气，也够让人在那行上耗半小时。</p>
+        <p data-field="inv.p13" data-label="段落13" data-type="textarea" data-group="正文"><b>坑四：采样混叠。</b>模型能跑、波形也像，但算出来的效率是 107%，THD 也低得可疑。查下来是数据记录步长设成 10 μs，而开关频率正好 10 kHz——每个开关周期只采一个点，在采样定理边缘反复横跳。改成 2 μs 后，效率回到 97.8%，THD 变成合理的 3.07%。<b>这个坑的教训是：数字太漂亮的时候，先怀疑测量，而不是先高兴。</b></p>
+
+        <h2 data-field="inv.h5" data-label="小标题5" data-group="正文">结果</h2>
+        <table class="spec">
+          <caption>要求与仿真对照</caption>
+          <tbody>
+            <tr><th>输出线电压</th><td>要求 220 V → 仿真 220.53 V（+0.24%）</td></tr>
+            <tr><th>负载功率</th><td>要求 ≥ 1 kW → 仿真 1105 W</td></tr>
+            <tr><th>效率</th><td>要求 &gt; 80% → 仿真 97.84%</td></tr>
+            <tr><th>线电压 THD</th><td>仿真 3.07%，优于 GB/T 14549 的 5%</td></tr>
+            <tr><th>导通顺序</th><td>六区间表 + 六路驱动波形，逐段对上</td></tr>
+            <tr><th>功率因数</th><td>0.954</td></tr>
+          </tbody>
+        </table>
+        <p data-field="inv.p14" data-label="段落14" data-type="textarea" data-group="正文">效率按损耗模型算：IGBT 通态 11.27 W、二极管 2.59 W、开关 6.25 W、滤波与驱动 4.27 W，合计 24.38 W，对应 97.84%。这个分解有个反直觉的地方：<b>通态损耗比开关损耗大得多</b>——在 10 kHz 这个频率下，开关损耗只占四分之一，说明这类低频逆变器的主要矛盾是导通压降而不是开关速度。</p>
+        <p data-field="inv.p15" data-label="段落15" data-type="textarea" data-group="正文">后来补了一组负载适应性实验：满载 40 Ω 时 220.53 V，半载 80 Ω 时 222.41 V（+0.9%），空载 229.91 V（+4.3%）。负载越轻电压越高，因为死区压降和电感压降都随电流减小。这说明<b>单一调制比只能保住一个工作点</b>，要在全负载范围稳压必须加电压闭环——这一条写进了报告的「不足与展望」，也是答辩时被追问最多的点。</p>
+
+        <h2 data-field="inv.h6" data-label="小标题6" data-group="正文">报告本身也是一个工程问题</h2>
+        <p data-field="inv.p16" data-label="段落16" data-type="textarea" data-group="正文">技术内容做完只算过半，剩下的一半是把内容装进学校那张模板里：封面、任务书、学生日志、综合评价表四张前置表格，正文字号、行距、三级标题字体、图表题字号都有明确规定。手工调格式三十页必然前后不一致，所以干脆用脚本生成：样式一次定义，正文按内容填充。</p>
+        <p data-field="inv.p17" data-label="段落17" data-type="textarea" data-group="正文"><b>公式用 OMML 而不是图片。</b>18 条独立公式全部是 Word 原生公式，居中排版、编号右对齐。图片公式不可编辑、缩放会糊、一改字号就错位。<b>表格统一三线表</b>，9 张表去掉竖线只留顶线、表头线和底线。<b>引用上标、参考文献按 GB/T 7714</b>，正文 12 处引用与文末 9 条文献一一对应。</p>
+        <p data-field="inv.p18" data-label="段落18" data-type="textarea" data-group="正文">答辩后老师提了一条意见：表格前后不能留空，得有文字介绍和解读。于是 9 张表逐张补了 120–150 字叙述——不是把表里的数字再念一遍，而是说清这张表在回答什么问题、关键数据说明了什么。报告前后改了四版，最后一版还跑了一遍自动自查：字体、字号、行距、图表编号、引用是否都在正文出现，逐项核对。</p>
+
+        <h2 data-field="inv.h7" data-label="小标题7" data-group="正文">复盘</h2>
+        <p data-field="inv.p19" data-label="段落19" data-type="textarea" data-group="正文">做对了的是三件事：先推公式再建模，所以 m 从 0.945 改到 0.99 时有依据，不是瞎试；参数化建模，让调制比扫描、负载变化这些实验都只是一行参数的差别；把每一个报错都当线索追到底，四个坑最后都变成了报告里的分析章节。</p>
+        <p data-field="inv.p20" data-label="段落20" data-type="textarea" data-group="正文">没做好的是最后那点：单一调制比撑不住全负载范围，闭环没做。下次再做，会把电压外环和电流内环提前排进计划，而不是留到「不足与展望」里。</p>
+      </div>
+    </section>
+
+    <nav class="work-nav" aria-label="作品导航">
+      <a href="work-sentinel.html"><span class="dir">上一个</span>← C 盘哨兵</a>
+      <a href="work-skills.html"><span class="dir">下一个</span>技能包 Toolchain →</a>
+    </nav>
+
+  </main>
+</div>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="mark">
+        <div class="wm-name">WWS<span class="cn"> · 思垣</span></div>
+        <div class="wm-sub">作品 · 技能 · 博客</div>
+        <div class="wm-ver">v1.2.0 · 持续更新</div>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <div class="foot-col-title">作品</div>
+          <a href="work-comet.html">彗星 Comet</a>
+          <a href="work-sentinel.html">C 盘哨兵</a>
+          <a href="work-inverter.html">三相 SPWM 逆变器</a>
+          <a href="work-skills.html">技能包 Toolchain</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">技能</div>
+          <a href="skills.html">电路设计</a>
+          <a href="skills.html">单片机</a>
+          <a href="skills.html">摄影后期</a>
+          <a href="skills.html">三维建模</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">博客</div>
+          <a href="blog.html">项目复盘</a>
+          <a href="blog.html">技术笔记</a>
+          <a href="blog.html">生活随笔</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">关于</div>
+          <a href="about.html">简介</a>
+          <a href="https://github.com/look4you-yuan">GitHub</a>
+          <a href="works.html">作品集</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">联系</div>
+          <a href="about.html#contact">交流</a>
+          <a href="about.html#contact">合作</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="ethos">安静地做，认真地记录。</span>
+      <span>© 2026 WWS · 思垣</span>
+    </div>
+  </div>
+</footer>
+
+<button class="editor-fab" type="button" title="打开内容控制台（Ctrl/Cmd+E）" aria-label="打开内容控制台">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+  </svg>
+</button>
+<div id="editor-drawer" class="editor-drawer" hidden></div>
+
+<script src="editor.js"></script>
+
+</body>
+</html>

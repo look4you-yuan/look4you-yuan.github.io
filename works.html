@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>作品 · WWS 思垣</title>
-<meta name="description" content="WWS 的作品陈列。">
+<meta name="description" content="WWS 的作品陈列：从电路到桌面软件，从仿真到镜头。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -43,10 +43,98 @@
     <section class="page-hero">
       <nav class="crumb"><a href="index.html">首页</a><span class="sep">/</span>作品</nav>
       <h1 data-field="page.title" data-label="页面标题" data-group="页头">作品</h1>
-      <p class="lede" data-field="page.lede" data-label="页面导语" data-type="textarea" data-group="页头">从电路到实物，从天空到镜头。每一个都值得慢慢看。</p>
+      <p class="lede" data-field="page.lede" data-label="页面导语" data-type="textarea" data-group="页头">从电路到软件，从仿真到镜头。做完了的，都放在这里。</p>
     </section>
 
-    <div class="feature-cards" data-list="works" data-label="作品卡片">
+    <div class="group-head tight">
+      <p class="section-eyebrow">已经交付的</p>
+      <h2 class="section-title">四个完整的项目</h2>
+      <p class="section-lede">有可运行的程序，有能打印的报告，也有能直接发给别人的成品。点进去看过程。</p>
+    </div>
+
+    <div class="feature-cards" data-list="works" data-label="项目卡片">
+
+      <article class="fcard" data-item>
+        <figure class="fcard-media">
+          <div class="fcard-shot">
+            <img src="assets/works/comet/cover.jpg" data-field="shot" data-label="缩略图" data-type="img" alt="彗星 Comet 界面">
+          </div>
+        </figure>
+        <div class="fcard-body">
+          <h3 class="fcard-name"><span data-field="name" data-label="名称">彗星 Comet</span><span class="tag" data-field="tag" data-label="标签">Windows 工具</span></h3>
+          <ul class="fcard-points" data-field="points" data-label="要点（每行一条）" data-type="lines">
+            <li>三天时间，12,152 行自有代码，六个页面一个入口</li>
+            <li>不引框架、不设构建，每页一颗可拖拽的 WebGL 星球</li>
+            <li>56 个清理目标逐条写明「删了会怎样」，删除在后端二次校验</li>
+            <li>打成一个 29.9 MB 单文件，双击即用，全本地不联网</li>
+          </ul>
+          <a class="fcard-more" href="work-comet.html" data-field="more" data-label="详情链接" data-type="link">查看详情 <i>→</i></a>
+        </div>
+      </article>
+
+      <article class="fcard" data-item>
+        <figure class="fcard-media">
+          <div class="fcard-shot">
+            <img src="assets/works/sentinel/preview.jpg" data-field="shot" data-label="缩略图" data-type="img" alt="C 盘哨兵主界面">
+          </div>
+        </figure>
+        <div class="fcard-body">
+          <h3 class="fcard-name"><span data-field="name" data-label="名称">C 盘哨兵</span><span class="tag" data-field="tag" data-label="标签">Python · 系统监控</span></h3>
+          <ul class="fcard-points" data-field="points" data-label="要点（每行一条）" data-type="lines">
+            <li>常驻托盘的写入监控，回答「现在是谁在写 C 盘」</li>
+            <li>按进程统计读写量实时排序，双击定位到 exe 位置</li>
+            <li>定时测量关注目录体积，记下突发写入的时间戳</li>
+            <li>SQLite 存历史、CSV 按天滚动，一键生成 HTML 清算报告</li>
+          </ul>
+          <a class="fcard-more" href="work-sentinel.html" data-field="more" data-label="详情链接" data-type="link">查看详情 <i>→</i></a>
+        </div>
+      </article>
+
+      <article class="fcard" data-item>
+        <figure class="fcard-media">
+          <div class="fcard-shot">
+            <img src="assets/works/inverter/steady-waveform.jpg" data-field="shot" data-label="缩略图" data-type="img" alt="三相逆变器稳态波形">
+          </div>
+        </figure>
+        <div class="fcard-body">
+          <h3 class="fcard-name"><span data-field="name" data-label="名称">三相 SPWM 逆变器</span><span class="tag" data-field="tag" data-label="标签">MATLAB · 电力电子</span></h3>
+          <ul class="fcard-points" data-field="points" data-label="要点（每行一条）" data-type="lines">
+            <li>380 V 直流进、三相 220 V / 50 Hz 出，1 kW 级，独立完成</li>
+            <li>先从公式推调制比再建模，改一个电容值重跑脚本即可</li>
+            <li>线电压 220.53 V、THD 3.07%、效率 97.84%，六路驱动对上</li>
+            <li>30 页报告与 9 张分析图由脚本生成，数字与仿真同源</li>
+          </ul>
+          <a class="fcard-more" href="work-inverter.html" data-field="more" data-label="详情链接" data-type="link">查看详情 <i>→</i></a>
+        </div>
+      </article>
+
+      <article class="fcard" data-item>
+        <figure class="fcard-media">
+          <div class="fcard-shot">
+            <img src="assets/works/skills/cover.svg" data-field="shot" data-label="缩略图" data-type="img" alt="技能包封面">
+          </div>
+        </figure>
+        <div class="fcard-body">
+          <h3 class="fcard-name"><span data-field="name" data-label="名称">技能包 Toolchain</span><span class="tag" data-field="tag" data-label="标签">AI Skill · 工作流</span></h3>
+          <ul class="fcard-points" data-field="points" data-label="要点（每行一条）" data-type="lines">
+            <li>四套可复用技能包：课程设计、Simulink 工具箱、提示词合集、微信导出</li>
+            <li>把报告排版、公式、图号、自检这些重复劳动写成脚本</li>
+            <li>让 AI 直接操作 Simulink 建模、连线、跑仿真、导图</li>
+            <li>附安装与自检脚本，换台机器也能一键复原</li>
+          </ul>
+          <a class="fcard-more" href="work-skills.html" data-field="more" data-label="详情链接" data-type="link">查看详情 <i>→</i></a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="group-head">
+      <p class="section-eyebrow">练习与日常</p>
+      <h2 class="section-title">动手做过的小东西</h2>
+      <p class="section-lede">课程作业、社团、生活里顺手做的。没有交付压力，但都真的做完了。</p>
+    </div>
+
+    <div class="feature-cards" data-list="works-more" data-label="练习卡片">
 
       <article class="fcard" data-item>
         <figure class="fcard-media">
@@ -160,15 +248,15 @@
       <div class="mark">
         <div class="wm-name">WWS<span class="cn"> · 思垣</span></div>
         <div class="wm-sub">作品 · 技能 · 博客</div>
-        <div class="wm-ver">v1.1.0 · 持续更新</div>
+        <div class="wm-ver">v1.2.0 · 持续更新</div>
       </div>
       <div class="foot-cols">
         <div class="foot-col">
           <div class="foot-col-title">作品</div>
-          <a href="works.html">人体感应小夜灯</a>
-          <a href="works.html">航模与飞行</a>
-          <a href="works.html">光影笔记</a>
-          <a href="works.html">写作</a>
+          <a href="work-comet.html">彗星 Comet</a>
+          <a href="work-sentinel.html">C 盘哨兵</a>
+          <a href="work-inverter.html">三相 SPWM 逆变器</a>
+          <a href="work-skills.html">技能包 Toolchain</a>
         </div>
         <div class="foot-col">
           <div class="foot-col-title">技能</div>

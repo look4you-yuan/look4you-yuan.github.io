@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>彗星 Comet · 作品 · WWS 思垣</title>
+<meta name="description" content="彗星 Comet：一个 Windows 清理与调校工具，六页六星球，单文件免安装，全本地运行。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="work-comet">
+
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<div class="page">
+
+  <header class="nav-wrap">
+    <nav class="site-nav" aria-label="主导航">
+      <a class="nav-brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="13" fill="none" stroke="#144a74" stroke-width="2.4"/>
+          <ellipse cx="16" cy="16" rx="20" ry="7" fill="none" stroke="#2d618c" stroke-width="1.4" opacity="0.55" transform="rotate(-18 16 16)"/>
+          <circle cx="16" cy="16" r="4.5" fill="#144a74"/>
+        </svg>
+        <b>WWS<span class="cn">思垣</span></b>
+      </a>
+      <div class="nav-links">
+        <a href="works.html" class="active" aria-current="page">作品</a>
+        <a href="skills.html">技能</a>
+        <a href="blog.html">博客</a>
+        <a href="about.html">关于</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn-primary btn-sm" href="about.html#contact">联系我</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <section class="page-hero">
+      <nav class="crumb"><a href="index.html">首页</a><span class="sep">/</span><a href="works.html">作品</a><span class="sep">/</span>彗星 Comet</nav>
+      <h1 data-field="comet.title" data-label="标题" data-group="页头">彗星 Comet</h1>
+      <p class="lede" data-field="comet.lede" data-label="导语" data-type="textarea" data-group="页头">六个页面，六颗星球，一台更轻的 Windows。无广告、免安装、全本地。</p>
+      <dl class="work-meta">
+        <div><dt>类型</dt><dd data-field="comet.m1" data-label="类型" data-group="页头">Windows 桌面应用</dd></div>
+        <div><dt>时间</dt><dd data-field="comet.m2" data-label="时间" data-group="页头">2026 年 10 月</dd></div>
+        <div><dt>角色</dt><dd data-field="comet.m3" data-label="角色" data-group="页头">独立完成：设计 / 开发 / 打包 / 文档</dd></div>
+        <div><dt>技术</dt><dd data-field="comet.m4" data-label="技术" data-group="页头">pywebview · WebView2 · 原生 JS · Python</dd></div>
+      </dl>
+    </section>
+
+    <figure class="work-cover">
+      <img src="assets/works/comet/cover.jpg" alt="彗星 Comet 主界面" loading="lazy">
+      <figcaption>主界面：顶部是目标栏与磁盘胶囊，中间是分组的清理清单，右侧显示可清理总量</figcaption>
+    </figure>
+
+    <div class="stat-row">
+      <div class="stat"><b>12,152<em>行</em></b><span>自有代码（前端 + 后端 + 壳）</span></div>
+      <div class="stat"><b>6<em>页</em></b><span>功能页面，每页一颗可转的星球</span></div>
+      <div class="stat"><b>56<em>个</em></b><span>清理目标，六大类</span></div>
+      <div class="stat"><b>29.9<em>MB</em></b><span>单文件免安装，双击即用</span></div>
+    </div>
+
+    <section class="article">
+      <div class="article-body">
+
+        <h2 data-field="comet.h1" data-label="小标题1" data-group="正文">为什么还要再做一个清理工具</h2>
+        <p data-field="comet.p1" data-label="段落1" data-type="textarea" data-group="正文">因为市面上的选择，要么在卖广告位，要么只敢扫最安全的三个目录。而这两年的电脑里，真正吃掉几十 GB 的东西早就换了一批：开发者缓存、浏览器 Code Cache、AI 工具留下的旧会话与本地模型。</p>
+
+        <table class="spec">
+          <caption>传统清理软件没解决的四个问题</caption>
+          <tbody>
+            <tr><th>广告比垃圾多</th><td>首页三块推荐位，点一次「一键加速」先给你装个全家桶。清理变成装机量的生意，不是解决问题的手艺。</td></tr>
+            <tr><th>只敢动最安全的地方</th><td>Temp 和回收站之外一概不碰。npm / pip / Gradle / Docker 的缓存一放就是几十 GB。</td></tr>
+            <tr><th>AI 的痕迹没人管</th><td>Claude Code、Codex、Cursor、豆包、Ollama 都在往 C 盘写缓存和旧会话，传统工具不认识这些目录。</td></tr>
+            <tr><th>卸完留一尾巴</th><td>程序删了，AppData 里的同名目录、桌面快捷方式、注册表键全在原地，下次再装问题跟着回来。</td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout" data-field="comet.q1" data-label="引用块" data-type="textarea" data-group="正文">所以它不叫「清理大师」。它不是帮你腾空间的工具，是让你<b>知道空间去哪了</b>的工具。</div>
+
+        <h2 data-field="comet.h2" data-label="小标题2" data-group="正文">六个页面，每页一颗星球</h2>
+        <p data-field="comet.p2" data-label="段落2" data-type="textarea" data-group="正文">每页一个主题色、一颗能用手拖动的星球。切页时背景交叉淡入，星球暂停自转、回来接着转。星球不是贴图——是手写的 GLSL 着色器做的球面交线、逐像素算法线、晨昏线与大气边缘光。</p>
+      </div>
+    </section>
+
+    <div class="gallery g-3">
+      <figure><img src="assets/works/comet/card-02.jpg" alt="清理页" loading="lazy"><figcaption>清理 · 地球 —— 6 大类 56 个目标，每一行都写着删了会怎样</figcaption></figure>
+      <figure><img src="assets/works/comet/card-03.jpg" alt="清 AI 页" loading="lazy"><figcaption>清 AI · 月球 —— 缓存、旧会话、本地模型、构建产物，四类分开算</figcaption></figure>
+      <figure><img src="assets/works/comet/card-04.jpg" alt="软件页" loading="lazy"><figcaption>软件 · 火星 —— 201 项带真实图标，可按盘筛选，卸载后查残留</figcaption></figure>
+      <figure><img src="assets/works/comet/card-05.jpg" alt="优化页" loading="lazy"><figcaption>优化 · 水星 —— 电源、启动项、服务、视觉效果，每项写明改了会怎样</figcaption></figure>
+      <figure><img src="assets/works/comet/card-06.jpg" alt="分析页" loading="lazy"><figcaption>分析 · 木星 —— 树图按面积看占用，能一路钻到单个文件</figcaption></figure>
+      <figure><img src="assets/works/comet/card-07.jpg" alt="状态页" loading="lazy"><figcaption>状态 · 土星 —— CPU、内存、磁盘、网络、温度，加一个健康度评分</figcaption></figure>
+      <figure><img src="assets/works/comet/card-08.jpg" alt="星球渲染" loading="lazy"><figcaption>星球是自己算的 —— 120 行 GLSL，没有 three.js</figcaption></figure>
+      <figure><img src="assets/works/comet/card-09.jpg" alt="分发方式" loading="lazy"><figcaption>拿去用，不用注册 —— 单文件 29.9 MB，无账号、无遥测</figcaption></figure>
+      <figure><img src="assets/works/comet/card-01.jpg" alt="总览" loading="lazy"><figcaption>总览 —— 六个页面，六颗星球，一个入口</figcaption></figure>
+    </div>
+
+    <section class="article">
+      <div class="article-body">
+
+        <h2 data-field="comet.h3" data-label="小标题3" data-group="正文">四层架构，没有一层是多余的</h2>
+        <p data-field="comet.p3" data-label="段落3" data-type="textarea" data-group="正文">整套东西没有前端框架、没有构建步骤、没有网络字体、没有 node_modules。改一个类名刷新就见效——这是三天能改这么多轮的前提。</p>
+
+        <table class="spec">
+          <caption>分层与代码量</caption>
+          <tbody>
+            <tr><th>UI</th><td>5,427 行 —— index.html / style.css / app.js / planet.js，原生 JS，六页共用一个状态机</td></tr>
+            <tr><th>Bridge</th><td>pywebview 的 JS API —— 前端只认 42 个具名方法，传 id 不传路径</td></tr>
+            <tr><th>Core</th><td>3,356 行 —— paths / jobs / cleaner / aiclean / apps / appsize / updates / tune / diskmap / monitor</td></tr>
+            <tr><th>System</th><td>Win32 / WMI / winget / 注册表 / SMART —— NtQuerySystemInformation 单次 15 ms 枚举进程</td></tr>
+            <tr><th>Shell</th><td>675 行 —— 无边框窗口 + 自绘标题栏 + 托盘小彗星，PyInstaller onefile 打包</td></tr>
+          </tbody>
+        </table>
+
+        <h2 data-field="comet.h4" data-label="小标题4" data-group="正文">几个刻意的取舍</h2>
+        <p data-field="comet.p4" data-label="段落4" data-type="textarea" data-group="正文"><b>磁盘分析慢 60 秒是故意的。</b>要秒级只能直接读 NTFS 的 MFT，需要管理员权限，还得处理压缩、硬链接、稀疏文件——三天里做不到不出错。于是选了「慢但精确」，并在界面上把秒数实时显示出来，让人知道它在干活。</p>
+        <p data-field="comet.p5" data-label="段落5" data-type="textarea" data-group="正文"><b>前端只发 id，不传路径。</b>路径映射留在后端的 CACHE 里，删除动作再过一遍白名单。就算前端被改，也删不到白名单之外的目录。System32、Program Files、驱动目录全程只读。</p>
+        <p data-field="comet.p6" data-label="段落6" data-type="textarea" data-group="正文"><b>默认保守。</b>需要管理员的项、正被占用的项、不可重建的项（模型权重、下载文件）默认不勾选；卸载与删除都要点两次；不可重建的东西走回收站，能捞回来。</p>
+        <p data-field="comet.p7" data-label="段落7" data-type="textarea" data-group="正文"><b>手写着色器。</b>three.js 要多带 600 KB，而这里只需要一颗球——120 行 GLSL 比引一个库更省事，也更可控。</p>
+
+        <h2 data-field="comet.h5" data-label="小标题5" data-group="正文">本机实测</h2>
+        <table class="spec">
+          <caption>数据来自作者本机，不是演示数据</caption>
+          <tbody>
+            <tr><th>清出空间</th><td>9.1 GB（其中 AI 痕迹 2.2 GB）</td></tr>
+            <tr><th>首次启动</th><td>约 2 秒（要解压运行时），之后更快</td></tr>
+            <tr><th>清理扫描</th><td>约 3 秒</td></tr>
+            <tr><th>软件枚举</th><td>约 5 秒（201 项，带真实图标）</td></tr>
+            <tr><th>进程枚举</th><td>15 毫秒</td></tr>
+            <tr><th>全盘分析</th><td>约 60 秒（慢但精确，界面上有秒数）</td></tr>
+          </tbody>
+        </table>
+
+        <p data-field="comet.p8" data-label="段落8" data-type="textarea" data-group="正文">打包成一个 exe 的代价是首启慢两秒，换来的是一句「双击就能用」。不写注册表、不常驻后台服务、不需要账号，不要了直接删掉 exe 就是卸载——这是我认为一个个人工具应有的样子。</p>
+      </div>
+    </section>
+
+    <nav class="work-nav" aria-label="作品导航">
+      <a href="works.html"><span class="dir">返回</span>全部作品</a>
+      <a href="work-sentinel.html"><span class="dir">下一个</span>C 盘哨兵 →</a>
+    </nav>
+
+  </main>
+</div>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="mark">
+        <div class="wm-name">WWS<span class="cn"> · 思垣</span></div>
+        <div class="wm-sub">作品 · 技能 · 博客</div>
+        <div class="wm-ver">v1.2.0 · 持续更新</div>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <div class="foot-col-title">作品</div>
+          <a href="work-comet.html">彗星 Comet</a>
+          <a href="work-sentinel.html">C 盘哨兵</a>
+          <a href="work-inverter.html">三相 SPWM 逆变器</a>
+          <a href="work-skills.html">技能包 Toolchain</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">技能</div>
+          <a href="skills.html">电路设计</a>
+          <a href="skills.html">单片机</a>
+          <a href="skills.html">摄影后期</a>
+          <a href="skills.html">三维建模</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">博客</div>
+          <a href="blog.html">项目复盘</a>
+          <a href="blog.html">技术笔记</a>
+          <a href="blog.html">生活随笔</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">关于</div>
+          <a href="about.html">简介</a>
+          <a href="https://github.com/look4you-yuan">GitHub</a>
+          <a href="works.html">作品集</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">联系</div>
+          <a href="about.html#contact">交流</a>
+          <a href="about.html#contact">合作</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="ethos">安静地做，认真地记录。</span>
+      <span>© 2026 WWS · 思垣</span>
+    </div>
+  </div>
+</footer>
+
+<button class="editor-fab" type="button" title="打开内容控制台（Ctrl/Cmd+E）" aria-label="打开内容控制台">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+  </svg>
+</button>
+<div id="editor-drawer" class="editor-drawer" hidden></div>
+
+<script src="editor.js"></script>
+
+</body>
+</html>
