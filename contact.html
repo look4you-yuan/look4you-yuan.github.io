@@ -46,13 +46,13 @@
       <p class="lede" data-field="contact.lede" data-label="导语" data-type="textarea" data-group="页头">有想做的项目、想问的问题，或者只是想说声你好——都可以。</p>
     </section>
 
-    <div class="contact-wrap">
+    <div class="contact-wrap single">
 
-      <section class="contact-block reveal">
-        <h2 class="block-title" data-field="contact.h1" data-label="小标题 1" data-group="联系方式">在别处找到我</h2>
-        <p class="block-lede" data-field="contact.p1" data-label="说明 1" data-type="textarea" data-group="联系方式">最直接的是 GitHub，代码和工具都放在那里。想聊具体的事，用右边的表单。</p>
+      <section class="contact-block">
+        <h2 class="block-title" data-field="contact.h1" data-label="小标题" data-group="联系方式">在别处找到我</h2>
+        <p class="block-lede" data-field="contact.p1" data-label="说明" data-type="textarea" data-group="联系方式">最直接的是 GitHub，代码和工具都放在那里。想先看看我做过什么，从作品集进去更快。</p>
 
-        <div class="contact-cards" data-list="channels" data-label="联系渠道">
+        <div class="contact-cards c-grid" data-list="channels" data-label="联系渠道">
 
           <a class="contact-card" href="https://github.com/look4you-yuan" data-item>
             <span class="contact-glyph" data-field="glyph" data-label="图标字">GH</span>
@@ -80,52 +80,7 @@
 
         </div>
 
-        <p class="block-note" data-field="contact.n1" data-label="说明 2" data-type="textarea" data-group="联系方式">通常一天内回信。如果我迟迟没回，大概率是漏看了，再发一次就好。</p>
-      </section>
-
-      <section class="contact-block reveal">
-        <h2 class="block-title" data-field="contact.h2" data-label="小标题 2" data-group="留言表单">写封信</h2>
-        <p class="block-lede" data-field="contact.p2" data-label="说明 3" data-type="textarea" data-group="留言表单">填好点「生成留言」，内容会复制到剪贴板，粘贴到邮件或微信发给我就行。本站不收集任何数据。</p>
-
-        <form class="msg-form" id="msg-form" novalidate>
-          <div class="field-row">
-            <div class="fld">
-              <label for="f-name" data-field="contact.l1" data-label="字段1 标签" data-group="留言表单">怎么称呼</label>
-              <input id="f-name" name="name" type="text" autocomplete="name"
-                     data-field="contact.ph1" data-label="字段1 占位文字" placeholder="你的名字">
-            </div>
-            <div class="fld">
-              <label for="f-from" data-field="contact.l2" data-label="字段2 标签" data-group="留言表单">怎么联系你</label>
-              <input id="f-from" name="from" type="text" autocomplete="email"
-                     data-field="contact.ph2" data-label="字段2 占位文字" placeholder="邮箱或微信，选填">
-            </div>
-          </div>
-
-          <div class="fld">
-            <label for="f-topic" data-field="contact.l3" data-label="字段3 标签" data-group="留言表单">想聊什么</label>
-            <input id="f-topic" name="topic" type="text"
-                   data-field="contact.ph3" data-label="字段3 占位文字" placeholder="一句话说清，方便我准备">
-          </div>
-
-          <div class="fld">
-            <label for="f-body" data-field="contact.l4" data-label="字段4 标签" data-group="留言表单">具体内容</label>
-            <textarea id="f-body" name="body" rows="6"
-                      data-field="contact.ph4" data-label="字段4 占位文字" placeholder="写在这里，越具体越好"></textarea>
-          </div>
-
-          <div class="form-actions">
-            <button class="btn-primary" type="submit" data-field="contact.btn" data-label="按钮文字" data-group="留言表单">生成留言</button>
-            <span class="form-status" id="form-status" role="status" aria-live="polite"></span>
-          </div>
-        </form>
-
-        <div class="form-preview" id="form-preview" hidden>
-          <div class="preview-head">
-            <span data-field="contact.prevt" data-label="预览标题" data-group="留言表单">预览</span>
-            <button class="btn-ghost btn-sm" type="button" id="copy-again" data-field="contact.copy2" data-label="再复制按钮" data-group="留言表单">再复制一次</button>
-          </div>
-          <pre id="preview-text"></pre>
-        </div>
+        <p class="block-note" data-field="contact.n1" data-label="结尾说明" data-type="textarea" data-group="联系方式">站内不设留言框，也不收集任何信息。想聊具体的事，在 GitHub 上开个 issue，或者在任意一个平台的私信里说一声就好。</p>
       </section>
 
     </div>
@@ -181,82 +136,8 @@
   </div>
 </footer>
 
-<button class="editor-fab" type="button" title="打开内容控制台（Ctrl/Cmd+E）" aria-label="打开内容控制台">
-  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
-  </svg>
-</button>
-<div id="editor-drawer" class="editor-drawer" hidden></div>
-
 <script src="editor.js"></script>
 <script src="motion.js"></script>
-<script>
-(function () {
-  var form = document.getElementById('msg-form');
-  var status = document.getElementById('form-status');
-  var preview = document.getElementById('form-preview');
-  var previewText = document.getElementById('preview-text');
-  if (!form) return;
-
-  function compose() {
-    var name = (form.name.value || '').trim();
-    var from = (form.from.value || '').trim();
-    var topic = (form.topic.value || '').trim();
-    var body = (form.body.value || '').trim();
-    var lines = [];
-    lines.push('你好，我是' + (name || '（未署名）') + '。');
-    if (topic) lines.push('主题：' + topic);
-    lines.push('');
-    lines.push(body);
-    if (from) { lines.push(''); lines.push('联系方式：' + from); }
-    return lines.join('\n');
-  }
-
-  function copy(text) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      return navigator.clipboard.writeText(text);
-    }
-    return new Promise(function (resolve, reject) {
-      var ta = document.createElement('textarea');
-      ta.value = text;
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.select();
-      try { document.execCommand('copy'); resolve(); } catch (e) { reject(e); }
-      ta.remove();
-    });
-  }
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (!(form.body.value || '').trim()) {
-      status.textContent = '先写点内容吧';
-      status.className = 'form-status warn';
-      form.body.focus();
-      return;
-    }
-    var text = compose();
-    previewText.textContent = text;
-    preview.hidden = false;
-    copy(text).then(function () {
-      status.textContent = '已复制到剪贴板';
-      status.className = 'form-status ok';
-    }).catch(function () {
-      status.textContent = '复制失败，请手动选中预览里的文字';
-      status.className = 'form-status warn';
-    });
-  });
-
-  var again = document.getElementById('copy-again');
-  if (again) again.addEventListener('click', function () {
-    copy(previewText.textContent).then(function () {
-      status.textContent = '已再次复制';
-      status.className = 'form-status ok';
-    });
-  });
-})();
-</script>
 
 </body>
 </html>

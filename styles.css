@@ -755,6 +755,8 @@ footer.foot {
   transition: background 0.15s, transform 0.15s;
 }
 .editor-fab:hover { background: var(--brand-light); transform: translateY(-2px); }
+/* 控件只在本机由脚本创建；即便残留也一律不参与布局 */
+.editor-fab[hidden] { display: none !important; }
 
 .editor-drawer {
   position: fixed;
@@ -771,6 +773,8 @@ footer.foot {
   transform: translateX(100%);
   transition: transform 0.25s var(--ease);
 }
+/* display:flex 会盖掉 [hidden]，这里显式兜住，避免窄屏横向溢出 */
+.editor-drawer[hidden] { display: none !important; }
 .editor-drawer.open { transform: none; }
 
 .ed-head {
@@ -1746,4 +1750,21 @@ body.editing [data-field]:hover { outline-color: color-mix(in srgb, var(--brand)
 @media (prefers-reduced-motion: reduce) {
   .js-motion body { opacity: 1 !important; }
   .js-motion .m-target { opacity: 1 !important; }
+}
+
+/* ==========================================================================
+   联系页（仅联系方式，单栏）
+   ========================================================================== */
+.contact-wrap.single { grid-template-columns: minmax(0, 1fr); gap: 0; }
+.contact-wrap.single .contact-block { max-width: 100%; }
+
+.contact-cards.c-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.contact-cards.c-grid .contact-card { height: 100%; }
+
+@media (max-width: 760px) {
+  .contact-cards.c-grid { grid-template-columns: 1fr; }
 }

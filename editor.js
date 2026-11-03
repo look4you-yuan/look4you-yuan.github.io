@@ -19,9 +19,34 @@
       if (fab) fab.remove();
       var dr = document.getElementById('editor-drawer');
       if (dr) dr.remove();
-      document.body.classList.remove('editing');
+      if (document.body) document.body.classList.remove('editing');
     })();
     return;
+  }
+
+  /* ---------- 1.5 控件由脚本创建 ----------
+     不写进 HTML：线上页面里压根没有这些节点，
+     也就不会出现「先绘制、后删除」的闪现。 */
+  function ensureChrome() {
+    if (!document.querySelector('.editor-fab')) {
+      var fab = document.createElement('button');
+      fab.className = 'editor-fab';
+      fab.type = 'button';
+      fab.title = '打开内容控制台（Ctrl/Cmd+E）';
+      fab.setAttribute('aria-label', '打开内容控制台');
+      fab.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" ' +
+        'stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ' +
+        'aria-hidden="true"><path d="M12 20h9"></path>' +
+        '<path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>';
+      document.body.appendChild(fab);
+    }
+    if (!document.getElementById('editor-drawer')) {
+      var drawer = document.createElement('div');
+      drawer.id = 'editor-drawer';
+      drawer.className = 'editor-drawer';
+      drawer.hidden = true;
+      document.body.appendChild(drawer);
+    }
   }
 
   /* 按页面隔离存储：每个页面各存各的，互不覆盖 */
@@ -453,6 +478,8 @@
 
   /* ---------- 14. 初始化 ---------- */
   function init() {
+    ensureChrome();
+
     // 补全 icon 元素的 data-icon
     $all('[data-type="icon"]').forEach(function (el) {
       if (!el.getAttribute('data-icon')) el.setAttribute('data-icon', colorIcon(el));
